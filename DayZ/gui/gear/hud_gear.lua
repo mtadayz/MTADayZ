@@ -343,7 +343,7 @@ end
 
 function WeaponHUD()
 	if getElementData(getLocalPlayer(),"logedin") then
-		ammo = getPedTotalAmmo (getLocalPlayer())
+		ammo = getPedTotalAmmo (getLocalPlayer()) - getPedAmmoInClip (getLocalPlayer())
 		clip = getPedAmmoInClip (getLocalPlayer())
 		weaponID = getPedWeapon(getLocalPlayer())
 		local divide = "|"
