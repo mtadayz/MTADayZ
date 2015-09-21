@@ -545,7 +545,7 @@ function showInventoryManual ()
 end
 
 function initInventory ()
-	if inventoryButtAllowed and getElementData(getLocalPlayer(), "logedin") then
+	if inventoryButtAllowed and getElementData(getLocalPlayer(), "logedin") and getElementData(getLocalPlayer(), "isDead") ~= true then
 		inventoryButtAllowed = false
 		setTimer ( function () inventoryButtAllowed = true end, 500, 1 )
 		if not inventoryShow then
