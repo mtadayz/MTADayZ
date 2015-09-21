@@ -44,7 +44,7 @@ addCommandHandler("Reload weapon", function()
 			return 
 		end
 		if getPedTotalAmmo (getLocalPlayer()) - getPedAmmoInClip (getLocalPlayer()) <= 0 then
-			triggerEvent("onRollMessageStart", root, "No ammo left to reload!", 255, 0, 0)
+			triggerEvent("onRollMessageStart", localPlayer, "No ammo left to reload!", 255, 0, 0)
 			return
 		end
 		if getPedAmmoInClip (getLocalPlayer()) == getWeaponProperty(getPedWeapon( localPlayer ), "pro", "maximum_clip_ammo")or
