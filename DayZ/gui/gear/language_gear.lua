@@ -1176,7 +1176,7 @@ languageTextTable = {
 		{"Morphine", 1, 'morphine.png', 128, 128, "Item", "Usado por via intramuscular para gerenciar\ndores intensas,  como de fraturas.", "Morfina", "Use"},
 		{"Epi-Pen", 1, 'epipen.png', 128, 128, "Item", "Auto injetor de epinefrina. Usado para injeção intramuscular\npara reanimar vítimas inconscientes.", "Epi-Pen"},
 		{"Blood Bag", 1, 'bloodbag.png', 128,  85, "Item", "Bolsa de sangue utilizado para administrar\numa transfusão de sangue.", "Bolsa de Sangue", "Use"},
-		{"Blood Test Kit", 1, 'bloodtest.png', 128,  85, "Item", "Usado para determinar RH e tipo sanguíneo.", "Kit de teste sanguíneo", "Testar Sangue"},
+		{"Blood Test Kit", 1, 'bloodtest.png', 128,  85, "Item", "Usado para determinar RH e tipo sanguíneo.", "Kit de teste sanguíneo", "Test Blood"},
 		{"Transfusion Kit", 1, 'transfusion.png', 128,  85, "Item", "Um kit de transfusão de sangue, que é necessário para \nrealizar transfusões de sangue e encher bolsas de sangue.", "Kit de Transfusão", "Transfusion"},
 		{"Blood Bag (Empty)", 1, 'bloodbag.png', 128,  85, "Item", "Bolsa de sangue utilizado para administrar\numa transfusão de sangue. Está vazio.", "Bolsa de Sangue [Vazia]"},
 		{"Wire Fence", 1, 'wirefence.png', 128, 128, "Item", "Arame farpado em grande rolo que\npode ser expandido como uma cerca com\nestacas de aço para formar obstáculos de arame militar.", "Cerca de Arame", "Build a wire fence"}, 
