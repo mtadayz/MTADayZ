@@ -103,8 +103,8 @@ local eastype = "OutElastic"
 local screenW, screenH = guiGetScreenSize()
 local font = {}
 
-font[1] = dxCreateFont(":DayZ/fonts/28dayslater.ttf", 10)
-font[2] = dxCreateFont(":DayZ/fonts/etelka.ttf", 10)
+font[1] = dxCreateFont("fonts/28dayslater.ttf", 10)
+font[2] = dxCreateFont("fonts/etelka.ttf", 10)
 
 local yA = 0
 function performRender()
@@ -117,7 +117,7 @@ function performRender()
 		local x,y = guiGetScreenSize()
 		
 		local recintx, recinty, _ = interpolateBetween( 0, 0, 0, x*0.0225, y*0.1667, 0 , progress, eastype)
-		dxDrawImage(recintx, recinty, screenW * 0.9500, screenH * 0.5733, ":DayZ/gui/scoreboard/scoreboard.png", 0, 0, 0, tocolor(255, 255, 255, 255), true)
+		dxDrawImage(recintx, recinty, screenW * 0.9500, screenH * 0.5733, "gui/scoreboard/scoreboard.png", 0, 0, 0, tocolor(255, 255, 255, 255), true)
 		dxDrawText(serverName, screenW * 0.0250, screenH * 0.175, screenW * 0.9725, screenH * 0.2100, tocolor(255, 255, 255, 255), 1.00, font[1], "left", "top", false, false, true, false, false)
 		dxDrawText("Player", screenW * 0.0737, screenH * 0.2267, screenW * 0.3262, screenH * 0.2767, tocolor(255, 255, 255, 255), 1.00, font[2], "center", "top", false, false, true, false, false)
 		dxDrawText("#", screenW * 0.0300, screenH * 0.22, screenW * 0.0688, screenH * 0.2683, tocolor(255, 255, 255, 255), 1.50, font[2], "center", "top", false, false, true, false, false)
