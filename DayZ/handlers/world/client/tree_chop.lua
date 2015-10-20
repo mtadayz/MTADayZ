@@ -35,7 +35,7 @@ function chopTree()
 				if not startwoodtick then
 					numhit = numhit-maxhit
 					startwoodtick = getTickCount()
-					playSound3D(":DayZ/sounds/items/choopwood.ogg", x, y, z, true) 
+					playSound3D("sounds/items/choopwood.ogg", x, y, z, true) 
 					triggerServerEvent( "onPlayerChopTree", localPlayer, worldID, worldX, worldY, worldZ, worldRX, worldRY, worldRZ, worldLODID, interior )
 				end
 			end
