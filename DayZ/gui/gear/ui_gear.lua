@@ -9,10 +9,10 @@
 ]]
 
 local screenWidth,screenHeight = guiGetScreenSize()
-local button = dxCreateTexture ( ":DayZ/gui/gear/inventory/butoff.png" )
-local button2 = dxCreateTexture ( ":DayZ/gui/gear/inventory/butclick.png" )
-local buttArrow = dxCreateTexture ( ":DayZ/gui/gear/inventory/buttArrow.png" )
-local buttArrowDown = dxCreateTexture ( ":DayZ/gui/gear/inventory/buttArrowDown.png" )
+local button = dxCreateTexture ( "gui/gear/inventory/butoff.png" )
+local button2 = dxCreateTexture ( "gui/gear/inventory/butclick.png" )
+local buttArrow = dxCreateTexture ( "gui/gear/inventory/buttArrow.png" )
+local buttArrowDown = dxCreateTexture ( "gui/gear/inventory/buttArrowDown.png" )
 local inventoryShow = false
 bX, bY = screenWidth/2,screenHeight/2
 
@@ -567,7 +567,7 @@ function initInventory ()
 			addEventHandler( "onClientMouseEnter", testoLab, buttonLabelEntered, false )
 			addEventHandler( "onClientMouseLeave", testoLab, buttonLabelLeaved, false )
 			local numberInventory = math.random(0,4)
-			setSoundVolume(playSound (":DayZ/sounds/items/backpack_"..numberInventory..".ogg",false), .3)
+			setSoundVolume(playSound ("sounds/items/backpack_"..numberInventory..".ogg",false), .3)
 			triggerEvent("disableMenu",localPlayer)
 			triggerEvent("hideDebugMonitor",localPlayer)
 			triggerEvent("hideGPSOnInventoryOpen",localPlayer)
@@ -605,8 +605,8 @@ function initInventory ()
 				addEventHandler( "onClientMouseEnter", createdLabel, itemLabelEntered, false )
 				addEventHandler( "onClientMouseLeave", createdLabel, itemLabelLeaved, false )
 				addEventHandler ( "onClientGUIClick", createdLabel, itemLabelClicked, false )
-				local butt1 = exports.imageButton:createImageButton ( 'arrow'..i, bX-380, bY-230+yOff, 23, 23, 0, ':DayZ/gui/gear/inventory/buttArrow.png', ':DayZ/gui/gear/inventory/buttArrowDown.png' )
-				local butt2 = exports.imageButton:createImageButton ( 'arrowRev'..i, bX-50, bY-230+yOff, 23, 23, 180, ':DayZ/gui/gear/inventory/buttArrow.png', ':DayZ/gui/gear/inventory/buttArrowDown.png' )
+				local butt1 = exports.imageButton:createImageButton ( 'arrow'..i, bX-380, bY-230+yOff, 23, 23, 0, 'gui/gear/inventory/buttArrow.png', 'gui/gear/inventory/buttArrowDown.png' )
+				local butt2 = exports.imageButton:createImageButton ( 'arrowRev'..i, bX-50, bY-230+yOff, 23, 23, 180, 'gui/gear/inventory/buttArrow.png', 'gui/gear/inventory/buttArrowDown.png' )
 				exports.imageButton:setImageButtonVisible ( 'arrow'..i, false )
 				exports.imageButton:setImageButtonVisible ( 'arrowRev'..i, false )
 				table.insert ( itemLabelsButtons, { butt1, butt2 } )
@@ -910,7 +910,7 @@ end
 
 rightClick = {}
 
-rightClick["window"] = guiCreateStaticImage(0, 0, 0.05, 0.0215, ":DayZ/gui/gear/items/window_bg.png", true)
+rightClick["window"] = guiCreateStaticImage(0, 0, 0.05, 0.0215, "gui/gear/items/window_bg.png", true)
 rightClick["label"] = guiCreateLabel(0, 0, 1, 1, "", true, rightClick["window"])
 guiLabelSetHorizontalAlign(rightClick["label"], "center")
 guiLabelSetVerticalAlign(rightClick["label"], "center")
@@ -1066,10 +1066,10 @@ function itemLabelLeaved ()
 end
 
 local font = {}
-font[1] = dxCreateFont(":DayZ/fonts/bitstream.ttf",10)
+font[1] = dxCreateFont("fonts/bitstream.ttf",10)
 
 function renderDisplay()
-	dxDrawImage(bX-400, bY-300,800,565,":DayZ/gui/gear/inventory/inventory_bg.png")
+	dxDrawImage(bX-400, bY-300,800,565,"gui/gear/inventory/inventory_bg.png")
 	if loot then
 		local curLootItems = getLootCurrentSlots(loot) or 0 
 		local maxLootItems = getLootMaxAviableSlots(loot) or 0
@@ -1081,7 +1081,7 @@ function renderDisplay()
 	dxDrawText (gearName, bX-375, bY-260, bX-200,  bY-200, tocolor ( 0,0,0,255), 1,  font[1] )
 	
 	local itScroll = (bY-90)-5*(#inventory-9)
-	dxDrawImage(bX-20,bY-235-prevY,bX-bX+10,itScroll-prevY,":DayZ/gui/gear/inventory/scrollbar.png")
+	dxDrawImage(bX-20,bY-235-prevY,bX-bX+10,itScroll-prevY,"gui/gear/inventory/scrollbar.png")
 	
 	--dxDrawLine ( bX-10, bY-235-prevY, bX-10, itScroll-prevY, tocolor ( 0,0,0, 255 ), 15 )
 
@@ -1097,7 +1097,7 @@ function renderDisplay()
 				offX = 0
 				sizeX = 64
 			end
-			dxDrawImage ( bX-100+offX, bY+180, sizeX, 64, ':DayZ/gui/gear/icons/'..inventory[selectedItemLabel+itOff][4] )
+			dxDrawImage ( bX-100+offX, bY+180, sizeX, 64, 'gui/gear/icons/'..inventory[selectedItemLabel+itOff][4] )
 		end
 	-- // Right Side Gear
 	elseif rightItemLabelSelected then
@@ -1105,70 +1105,70 @@ function renderDisplay()
 			dxDrawText ( itemsInventory[selectedItemLabelID][7], bX-370, bY+60, screenWidth, screenHeight, tocolor ( 85,47,68,255), 1, font[1] )
 			dxDrawText ( itemsInventory[selectedItemLabelID][5], bX-370, bY+80, screenWidth, screenHeight, tocolor ( 0,0,0,255), 1, font[1] )
 			dxDrawText ( itemsInventory[selectedItemLabelID][6], bX-370, bY+100, screenWidth, screenHeight, tocolor (0,0,0,255), 1, font[1] )
-			dxDrawImage ( bX-100, bY+180, 64, 64, ':DayZ/gui/gear/icons/'..itemsInventory[selectedItemLabelID][2] )
+			dxDrawImage ( bX-100, bY+180, 64, 64, 'gui/gear/icons/'..itemsInventory[selectedItemLabelID][2] )
 		end
 	elseif toolLabelSelected then
 		if selectedToolLabelID <= #toolInventory then
 			dxDrawText ( toolInventory[selectedToolLabelID][7], bX-370, bY+60, screenWidth, screenHeight, tocolor ( 85,47,68,255), 1, font[1] )
 			dxDrawText ( toolInventory[selectedToolLabelID][5], bX-370, bY+80, screenWidth, screenHeight, tocolor ( 0,0,0,255), 1, font[1] )
 			dxDrawText ( toolInventory[selectedToolLabelID][6], bX-370, bY+100, screenWidth, screenHeight, tocolor ( 0,0,0,255), 1, font[1] )
-			dxDrawImage ( bX-100, bY+180, 64, 64, ':DayZ/gui/gear/icons/'..toolInventory[selectedToolLabelID][2] )
+			dxDrawImage ( bX-100, bY+180, 64, 64, 'gui/gear/icons/'..toolInventory[selectedToolLabelID][2] )
 		end
 	elseif ammoLabelSelected then
 		if selectedAmmoLabelID <= #ammoInventory then
 			dxDrawText ( ammoInventory[selectedAmmoLabelID][7], bX-370, bY+60, screenWidth, screenHeight, tocolor ( 85,47,68,255), 1, font[1] )
 			dxDrawText ( ammoInventory[selectedAmmoLabelID][5], bX-370, bY+80, screenWidth, screenHeight, tocolor ( 0,0,0,255), 1, font[1] )
 			dxDrawText ( ammoInventory[selectedAmmoLabelID][6], bX-370, bY+100, screenWidth, screenHeight, tocolor ( 0,0,0,255), 1, font[1] )
-			dxDrawImage ( bX-100, bY+180, 64, 64, ':DayZ/gui/gear/icons/'..ammoInventory[selectedAmmoLabelID][2] )
+			dxDrawImage ( bX-100, bY+180, 64, 64, 'gui/gear/icons/'..ammoInventory[selectedAmmoLabelID][2] )
 		end
 	end
 	
 	--// Normal items + consumables
-	dxDrawImage (bX+5, bY-250, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png') 
-	dxDrawImage (bX+55, bY-250, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png') 
-	dxDrawImage (bX+5, bY-200, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png') 
-	dxDrawImage (bX+55, bY-200, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png') 
-	dxDrawImage (bX+5, bY-150, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png') 
-	dxDrawImage (bX+55, bY-150, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png')
-	dxDrawImage (bX+5, bY-100, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png')
-	dxDrawImage (bX+55, bY-100, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png')
-	dxDrawImage (bX+5, bY-50, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png')
-	dxDrawImage (bX+55, bY-50, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png')
-	dxDrawImage (bX+5, bY-0, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png')
-	dxDrawImage (bX+55, bY-0, 45, 45, ':DayZ/gui/gear/inventory/brown_deselect.png')
+	dxDrawImage (bX+5, bY-250, 45, 45, 'gui/gear/inventory/brown_deselect.png') 
+	dxDrawImage (bX+55, bY-250, 45, 45, 'gui/gear/inventory/brown_deselect.png') 
+	dxDrawImage (bX+5, bY-200, 45, 45, 'gui/gear/inventory/brown_deselect.png') 
+	dxDrawImage (bX+55, bY-200, 45, 45, 'gui/gear/inventory/brown_deselect.png') 
+	dxDrawImage (bX+5, bY-150, 45, 45, 'gui/gear/inventory/brown_deselect.png') 
+	dxDrawImage (bX+55, bY-150, 45, 45, 'gui/gear/inventory/brown_deselect.png')
+	dxDrawImage (bX+5, bY-100, 45, 45, 'gui/gear/inventory/brown_deselect.png')
+	dxDrawImage (bX+55, bY-100, 45, 45, 'gui/gear/inventory/brown_deselect.png')
+	dxDrawImage (bX+5, bY-50, 45, 45, 'gui/gear/inventory/brown_deselect.png')
+	dxDrawImage (bX+55, bY-50, 45, 45, 'gui/gear/inventory/brown_deselect.png')
+	dxDrawImage (bX+5, bY-0, 45, 45, 'gui/gear/inventory/brown_deselect.png')
+	dxDrawImage (bX+55, bY-0, 45, 45, 'gui/gear/inventory/brown_deselect.png')
 	
-	dxDrawImage(bX+105,bY-250,249,97,":DayZ/gui/gear/inventory/backpack.png")
-	dxDrawImage(bX+105,bY-150,249,97,":DayZ/gui/gear/inventory/holding.png")
-	dxDrawImage(bX+105,bY-50,249,97,":DayZ/gui/gear/inventory/carrying.png")
+	dxDrawImage(bX+105,bY-250,249,97,"gui/gear/inventory/backpack.png")
+	dxDrawImage(bX+105,bY-150,249,97,"gui/gear/inventory/holding.png")
+	dxDrawImage(bX+105,bY-50,249,97,"gui/gear/inventory/carrying.png")
 	
 	--// Secondary Ammo + Bandages
-	dxDrawImage(bX+5,bY+50,100,100,":DayZ/gui/gear/inventory/pistol.png")
-	dxDrawImage(bX+105, bY+50,45,45,":DayZ/gui/gear/inventory/green_deselect.png")
-	dxDrawImage(bX+155, bY+50,45,45,":DayZ/gui/gear/inventory/green_deselect.png")
-	dxDrawImage(bX+205, bY+50,45,45,":DayZ/gui/gear/inventory/green_deselect.png")
-	dxDrawImage(bX+255, bY+50,45,45,":DayZ/gui/gear/inventory/green_deselect.png")
-	dxDrawImage(bX+305, bY+50,45,45,":DayZ/gui/gear/inventory/green_deselect.png")
-	dxDrawImage(bX+105, bY+100,45,45,":DayZ/gui/gear/inventory/green_deselect.png")
-	dxDrawImage(bX+155, bY+100,45,45,":DayZ/gui/gear/inventory/green_deselect.png")
-	dxDrawImage(bX+205, bY+100,45,45,":DayZ/gui/gear/inventory/green_deselect.png")
-	dxDrawImage(bX+255, bY+100,45,45,":DayZ/gui/gear/inventory/green_deselect.png")
-	dxDrawImage(bX+305, bY+100,45,45,":DayZ/gui/gear/inventory/green_deselect.png")
+	dxDrawImage(bX+5,bY+50,100,100,"gui/gear/inventory/pistol.png")
+	dxDrawImage(bX+105, bY+50,45,45,"gui/gear/inventory/green_deselect.png")
+	dxDrawImage(bX+155, bY+50,45,45,"gui/gear/inventory/green_deselect.png")
+	dxDrawImage(bX+205, bY+50,45,45,"gui/gear/inventory/green_deselect.png")
+	dxDrawImage(bX+255, bY+50,45,45,"gui/gear/inventory/green_deselect.png")
+	dxDrawImage(bX+305, bY+50,45,45,"gui/gear/inventory/green_deselect.png")
+	dxDrawImage(bX+105, bY+100,45,45,"gui/gear/inventory/green_deselect.png")
+	dxDrawImage(bX+155, bY+100,45,45,"gui/gear/inventory/green_deselect.png")
+	dxDrawImage(bX+205, bY+100,45,45,"gui/gear/inventory/green_deselect.png")
+	dxDrawImage(bX+255, bY+100,45,45,"gui/gear/inventory/green_deselect.png")
+	dxDrawImage(bX+305, bY+100,45,45,"gui/gear/inventory/green_deselect.png")
 	
 	--// Toolbelt
-	dxDrawImage(bX+5, bY+150,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+55, bY+150,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+105, bY+150,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+155, bY+150,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+205, bY+150,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+255, bY+150,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+305, bY+150,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+5, bY+200,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+55, bY+200,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+105, bY+200,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+155, bY+200,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+205, bY+200,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+255, bY+200,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
-	dxDrawImage(bX+305, bY+200,45,45,":DayZ/gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+5, bY+150,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+55, bY+150,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+105, bY+150,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+155, bY+150,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+205, bY+150,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+255, bY+150,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+305, bY+150,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+5, bY+200,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+55, bY+200,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+105, bY+200,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+155, bY+200,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+205, bY+200,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+255, bY+200,45,45,"gui/gear/inventory/brown_deselect.png")
+	dxDrawImage(bX+305, bY+200,45,45,"gui/gear/inventory/brown_deselect.png")
 	yOff = 0
 	local itemsMax = 12
 	if itemsMax > #itemsInventory then itemsMax = #itemsInventory end
@@ -1189,30 +1189,30 @@ function renderDisplay()
 			end
 			dxDrawRectangle(xPos, yPos, 4, itemAmount, tocolor(39, 236, 18, 255))
 		end
-		dxDrawImage(xPos, yPos,45,45,":DayZ/gui/gear/icons/"..itemsInventory[i][2])
+		dxDrawImage(xPos, yPos,45,45,"gui/gear/icons/"..itemsInventory[i][2])
 	end
 	
 	local whatBackpack = getElementData(localPlayer,"MAX_Slots")
 	if whatBackpack == 12 then
-		dxDrawImage(bX+180,bY-250,96,96,":DayZ/gui/gear/icons/acu.png")
+		dxDrawImage(bX+180,bY-250,96,96,"gui/gear/icons/acu.png")
 	elseif whatBackpack == 13 then
-		dxDrawImage(bX+180,bY-250,96,96,":DayZ/gui/gear/icons/czechpouch.png")
+		dxDrawImage(bX+180,bY-250,96,96,"gui/gear/icons/czechpouch.png")
 	elseif whatBackpack == 16 then
-		dxDrawImage(bX+180,bY-250,96,96,":DayZ/gui/gear/icons/alice.png")
+		dxDrawImage(bX+180,bY-250,96,96,"gui/gear/icons/alice.png")
 	elseif whatBackpack == 17 then
-		dxDrawImage(bX+180,bY-250,96,96,":DayZ/gui/gear/icons/survival.png")
+		dxDrawImage(bX+180,bY-250,96,96,"gui/gear/icons/survival.png")
 	elseif whatBackpack == 18 then
-		dxDrawImage(bX+180,bY-250,96,96,":DayZ/gui/gear/icons/britishpack.png")
+		dxDrawImage(bX+180,bY-250,96,96,"gui/gear/icons/britishpack.png")
 	elseif whatBackpack == 24 then
-		dxDrawImage(bX+180,bY-250,96,96,":DayZ/gui/gear/icons/coyote.png")
+		dxDrawImage(bX+180,bY-250,96,96,"gui/gear/icons/coyote.png")
 	elseif whatBackpack == 30 then
-		dxDrawImage(bX+180,bY-250,96,96,":DayZ/gui/gear/icons/czech.png")
+		dxDrawImage(bX+180,bY-250,96,96,"gui/gear/icons/czech.png")
 	end
 	
 	if isOpeningBackpack then
-		dxDrawImage(bX+330,bY-250,38,97,":DayZ/gui/gear/inventory/backpack_open_press.png")
+		dxDrawImage(bX+330,bY-250,38,97,"gui/gear/inventory/backpack_open_press.png")
 	else
-		dxDrawImage(bX+330,bY-250,38,97,":DayZ/gui/gear/inventory/backpack_open.png")
+		dxDrawImage(bX+330,bY-250,38,97,"gui/gear/inventory/backpack_open.png")
 	end
 	
 	local toolMax = 14
@@ -1227,7 +1227,7 @@ function renderDisplay()
 		if i ~= 1 and i ~= 8 then
 			xOff = xOff+50
 		end
-		dxDrawImage ( bX+xOff, bY+yOff, 45, 45, ':DayZ/gui/gear/icons/'..toolInventory[i][2] )
+		dxDrawImage ( bX+xOff, bY+yOff, 45, 45, 'gui/gear/icons/'..toolInventory[i][2] )
 	end
 	
 	local ammoMax = 10
@@ -1249,24 +1249,24 @@ function renderDisplay()
 			end
 			dxDrawRectangle(bX+xOff, bY+yOff, 4, itemAmount, tocolor(39, 236, 18, 255))
 		end
-		dxDrawImage ( bX+xOff, bY+yOff, 45, 45, ':DayZ/gui/gear/icons/'..ammoInventory[i][2] )
+		dxDrawImage ( bX+xOff, bY+yOff, 45, 45, 'gui/gear/icons/'..ammoInventory[i][2] )
 	end
 	local moveX = 140
 	if isCarryingWeapon then
-		dxDrawImage(bX+330,bY-50,38,97,":DayZ/gui/gear/inventory/uptohold.png")
-		dxDrawImage(bX+330,bY-150,38,97,":DayZ/gui/gear/inventory/downtocarry_disabled.png")
+		dxDrawImage(bX+330,bY-50,38,97,"gui/gear/inventory/uptohold.png")
+		dxDrawImage(bX+330,bY-150,38,97,"gui/gear/inventory/downtocarry_disabled.png")
 		moveX = 40
 	elseif isHoldingWeapon then
-		dxDrawImage(bX+330,bY-150,38,97,":DayZ/gui/gear/inventory/downtocarry.png")
-		dxDrawImage(bX+330,bY-50,38,97,":DayZ/gui/gear/inventory/uptohold_disabled.png")
+		dxDrawImage(bX+330,bY-150,38,97,"gui/gear/inventory/downtocarry.png")
+		dxDrawImage(bX+330,bY-50,38,97,"gui/gear/inventory/uptohold_disabled.png")
 		moveX = 140
 	else
-		dxDrawImage(bX+330,bY-150,38,97,":DayZ/gui/gear/inventory/downtocarry_disabled.png")
-		dxDrawImage(bX+330,bY-50,38,97,":DayZ/gui/gear/inventory/uptohold_disabled.png")
+		dxDrawImage(bX+330,bY-150,38,97,"gui/gear/inventory/downtocarry_disabled.png")
+		dxDrawImage(bX+330,bY-50,38,97,"gui/gear/inventory/uptohold_disabled.png")
 		moveX = 140
 	end
 	if selectedMainWeapon > 0 then
-		dxDrawImage ( bX+135, bY-moveX, 170, 80, ':DayZ/gui/gear/icons/'..inventoryWeap.main[selectedMainWeapon][2] )
+		dxDrawImage ( bX+135, bY-moveX, 170, 80, 'gui/gear/icons/'..inventoryWeap.main[selectedMainWeapon][2] )
 	end
 	
 	if selectedAdditWeapon > 0 then
@@ -1277,7 +1277,7 @@ function renderDisplay()
 				sizeX = 64
 				offX = 0
 			end
-			dxDrawImage ( bX+20, bY+70, sizeX, 64, ':DayZ/gui/gear/icons/'..inventoryWeap.addit[selectedAdditWeapon][2] )
+			dxDrawImage ( bX+20, bY+70, sizeX, 64, 'gui/gear/icons/'..inventoryWeap.addit[selectedAdditWeapon][2] )
 		else
 			selectedAdditWeapon = 0
 		end
@@ -1286,7 +1286,7 @@ function renderDisplay()
 	--[[
 	for i = 1, #inventoryWeap.spec do
 		xOff = xOff+70
-		dxDrawImage ( bX+xOff, bY+120, 64, 64, ':DayZ/gui/gear/icons/'..inventoryWeap.spec[i][2] )
+		dxDrawImage ( bX+xOff, bY+120, 64, 64, 'gui/gear/icons/'..inventoryWeap.spec[i][2] )
 	end
 	]]
 	
@@ -1300,7 +1300,7 @@ function renderDisplay()
 		else
 			offX = 32
 		end
-		dxDrawImage ( bX-320, bY-230+yOff, offX, 16, ':DayZ/gui/gear/icons/'..inventory[i+itOff][4] )
+		dxDrawImage ( bX-320, bY-230+yOff, offX, 16, 'gui/gear/icons/'..inventory[i+itOff][4] )
 		if inventory[i+itOff][2] > 0 then
 			dxDrawText ( inventory[i+itOff][9], bX-306+offX, bY-230+yOff, screenWidth, screenHeight, tocolor ( 255,255,255,255), 1, font[1] )
 			dxDrawText ( inventory[i+itOff][2], bX-355, bY-230+yOff, screenWidth, screenHeight, tocolor (255,255,255,255), 1, font[1] )
