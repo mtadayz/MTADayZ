@@ -24,7 +24,7 @@ local getLastTick = getTickCount ( )
 local isLightDir=true -- the vertexes oposite to the lightsource will NOT be affected
 local lightDirAcc = 0.2 -- the accuracy of the above (0.01-1)
 
-local textureCube= dxCreateTexture ( ":DayZ/handlers/players/client/flashlight/textures/cubebox.dds")
+local textureCube= dxCreateTexture ( "handlers/players/client/flashlight/textures/cubebox.dds")
 
 --This part might be useful for some.
 --local i_hate_grass = dxCreateShader ( "shaders/shader_null.fx" )
@@ -81,7 +81,7 @@ end
 
 function createWorldLightShader(thisPed)
 if light_shader[thisPed] then return false end
-	light_shader[thisPed] = dxCreateShader ( ":DayZ/handlers/players/client/flashlight/shaders/shader_light.fx",1,effectRange,true,"world,object,vehicle,ped")
+	light_shader[thisPed] = dxCreateShader ( "handlers/players/client/flashlight/shaders/shader_light.fx",1,effectRange,true,"world,object,vehicle,ped")
 	if not light_shader[thisPed] then return false end
 	dxSetShaderValue ( light_shader[thisPed],"sCubeTexture", textureCube )
 	dxSetShaderValue ( light_shader[thisPed],"isLightDir", isLightDir )
@@ -115,8 +115,8 @@ end
 
 function createFlashLightShader(thisPed)
 	if not shader_jaroovka[thisPed] then
-		shader_jaroovka[thisPed]=dxCreateShader(":DayZ/handlers/players/client/flashlight/shaders/shader_jaroovka.fx",0,0,false)
-		shader_rays[thisPed]=dxCreateShader(":DayZ/handlers/players/client/flashlight/shaders/flash_light_rays.fx",0,0,false)
+		shader_jaroovka[thisPed]=dxCreateShader("handlers/players/client/flashlight/shaders/shader_jaroovka.fx",0,0,false)
+		shader_rays[thisPed]=dxCreateShader("handlers/players/client/flashlight/shaders/flash_light_rays.fx",0,0,false)
 		if not shader_jaroovka[thisPed] or not shader_rays[thisPed] then
 			outputChatBox( "Could not create shader. Please use debugscript 3" )
 		end		
@@ -156,7 +156,7 @@ end
 
 function playSwitchSound(this_player)
 	pos_x,pos_y,pos_z=getElementPosition (this_player)
-	local flSound = playSound3D(":DayZ/handlers/players/client/flashlight/sounds/switch.wav", pos_x, pos_y, pos_z, false) 
+	local flSound = playSound3D("handlers/players/client/flashlight/sounds/switch.wav", pos_x, pos_y, pos_z, false) 
 	setSoundMaxDistance(flSound,3)
 	setSoundVolume(flSound,0.6)
 end
