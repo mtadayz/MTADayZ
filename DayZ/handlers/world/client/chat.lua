@@ -79,7 +79,7 @@ function initChatBox()
 	local layout = getChatboxLayout()
 	chatbox.text = "" 
 	chatbox.InputLineText = ""
-	chatbox.font = dxCreateFont(":DayZ/fonts/lucida.ttf",8)
+	chatbox.font = dxCreateFont("fonts/lucida.ttf",8)
 	chatbox.fontSizeX = layout["chat_scale"][1]
 	chatbox.fontSizeY = layout["chat_scale"][2]
 	chatbox.tabHeight = dxGetFontHeight(chatbox.fontSizeY, chatbox.font) + 2
@@ -212,7 +212,7 @@ addEventHandler("showChatBox", root, showChatBox)
 function showChatBox()
 	if chatbox.lastMenuStatus ~= isMainMenuActive() then
 		local layout = getChatboxLayout()
-		chatbox.font = dxCreateFont(":DayZ/fonts/lucida.ttf",8)
+		chatbox.font = dxCreateFont("fonts/lucida.ttf",8)
 		chatbox.width = 500*1.5
 		chatbox.fontColorHex = string.format("#%02X%02X%02X", layout["chat_text_color"][1],layout["chat_text_color"][2],layout["chat_text_color"][3])
 		chatbox.fontColorA = layout["chat_text_color"][4]
