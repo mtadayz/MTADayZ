@@ -104,13 +104,13 @@ function setPlayerCold()
 			randomsound = math.random(0,99)
 			if randomsound >= 0 and randomsound <= 10 then
 				local getnumber = math.random(0,2)
-				playSound(":DayZ/sounds/status/cough_"..getnumber..".ogg",false)
+				playSound("sounds/status/cough_"..getnumber..".ogg",false)
 				setElementData(localPlayer,"volume",100)
 				setTimer(function() setElementData(localPlayer,"volume",0) end,1500,1)
 			elseif randomsound >= 11 and randomsound <= 20 then	
 				setElementData(localPlayer,"volume",100)
 				setTimer(function() setElementData(localPlayer,"volume",0) end,1500,1)
-				playSound(":DayZ/sounds/status/sneezing.mp3",false)
+				playSound("sounds/status/sneezing.mp3",false)
 			end
 		end	
 	end
@@ -256,7 +256,7 @@ function debugJump2()
 	setElementData(localPlayer,"jumping",false)
 end
 
-local SneakEabled = false
+local SneakEnabled = false
 function setPlayerSneakOnWalk()
 	if getControlState("walk") then
 		if not SneakEnabled then
@@ -291,13 +291,13 @@ setTimer(updatePlayTime,60000,0)
 function onPlayerActionPlaySound(item)
 	if item == "meat" then
 		local number = math.random(0,1)
-		playSound(":DayZ/sounds/items/cook_"..number..".ogg",false)
+		playSound("sounds/items/cook_"..number..".ogg",false)
 	elseif item == "water" then
-		playSound(":DayZ/sounds/items/fillwater.ogg",false)
+		playSound("sounds/items/fillwater.ogg",false)
 	elseif item == "tent" then
-		playSound(":DayZ/sounds/items/tentunpack.ogg",false)
+		playSound("sounds/items/tentunpack.ogg",false)
 	elseif item == "repair" then
-		playSound(":DayZ/sounds/items/repair.ogg",false)
+		playSound("sounds/items/repair.ogg",false)
 	end
 end
 addEvent("onPlayerActionPlaySound",true)
@@ -306,16 +306,16 @@ addEventHandler("onPlayerActionPlaySound",root,onPlayerActionPlaySound)
 local bloodTest = {}
 local number = 0
 local vialsLeft = 3
-local handFont = guiCreateFont(":DayZ/fonts/needhelp.ttf",17)
+local handFont = guiCreateFont("fonts/needhelp.ttf",17)
 
-bloodTest["testsheet"] = guiCreateStaticImage(0.13, 0.20, 0.71, 0.61, ":DayZ/gui/status/blood/bloodtest.png", true)
-bloodTest["drop1"] = guiCreateStaticImage(0.162, 0.182, 0.13, 0.17, ":DayZ/gui/status/blood/drop.png", true, bloodTest["testsheet"])
+bloodTest["testsheet"] = guiCreateStaticImage(0.13, 0.20, 0.71, 0.61, "gui/status/blood/bloodtest.png", true)
+bloodTest["drop1"] = guiCreateStaticImage(0.162, 0.182, 0.13, 0.17, "gui/status/blood/drop.png", true, bloodTest["testsheet"])
 guiSetProperty(bloodTest["drop1"], "ImageColours", "tl:FF86787C tr:FF86787C bl:FF86787C br:FF86787C")
-bloodTest["drop2"] = guiCreateStaticImage(0.338, 0.182, 0.13, 0.17, ":DayZ/gui/status/blood/drop.png", true, bloodTest["testsheet"])
+bloodTest["drop2"] = guiCreateStaticImage(0.338, 0.182, 0.13, 0.17, "gui/status/blood/drop.png", true, bloodTest["testsheet"])
 guiSetProperty(bloodTest["drop2"], "ImageColours", "tl:FF86787C tr:FF86787C bl:FF86787C br:FF86787C")
-bloodTest["drop3"] = guiCreateStaticImage(0.512, 0.182, 0.13, 0.17, ":DayZ/gui/status/blood/drop.png", true, bloodTest["testsheet"])
+bloodTest["drop3"] = guiCreateStaticImage(0.512, 0.182, 0.13, 0.17, "gui/status/blood/drop.png", true, bloodTest["testsheet"])
 guiSetProperty(bloodTest["drop3"], "ImageColours", "tl:FF86787C tr:FF86787C bl:FF86787C br:FF86787C")
-bloodTest["drop4"] = guiCreateStaticImage(0.69, 0.182, 0.13, 0.17, ":DayZ/gui/status/blood/drop.png", true, bloodTest["testsheet"])
+bloodTest["drop4"] = guiCreateStaticImage(0.69, 0.182, 0.13, 0.17, "gui/status/blood/drop.png", true, bloodTest["testsheet"])
 guiSetProperty(bloodTest["drop4"], "ImageColours", "tl:FF86787C tr:FF86787C bl:FF86787C br:FF86787C")
 bloodTest["tested"] = guiCreateLabel(0.16, 0.45, 0.33, 0.09, getPlayerName(localPlayer), true, bloodTest["testsheet"])
 guiLabelSetColor(bloodTest["tested"], 0, 0, 0)
@@ -324,7 +324,7 @@ guiLabelSetVerticalAlign(bloodTest["tested"], "center")
 bloodTest["instructions"] = guiCreateLabel(0.16, 0.68, 0.33, 0.09, "Click the circles to \ndetermine your blood type!", true, bloodTest["testsheet"])
 guiLabelSetColor(bloodTest["instructions"], 0, 0, 0)
 guiLabelSetVerticalAlign(bloodTest["instructions"], "center")
-bloodTest["substance"] = guiCreateStaticImage(0.69, 0.49, 0.22, 0.37, ":DayZ/gui/status/blood/substance.png", true, bloodTest["testsheet"])
+bloodTest["substance"] = guiCreateStaticImage(0.69, 0.49, 0.22, 0.37, "gui/status/blood/substance.png", true, bloodTest["testsheet"])
 bloodTest["substanceleft"] = guiCreateLabel(0.30, 0.42, 0.56, 0.46, vialsLeft, true, bloodTest["substance"])
 guiSetFont(bloodTest["substanceleft"], "default-bold-small")
 guiLabelSetHorizontalAlign(bloodTest["substanceleft"], "center", false)
@@ -431,13 +431,13 @@ function infectionSigns()
 			local randomsound = math.random(0,50)
 			if randomsound >= 0 and randomsound <= 20 then
 				local getnumber = math.random(0,2)
-				playSound(":DayZ/sounds/status/cough_"..getnumber..".ogg",false)
+				playSound("sounds/status/cough_"..getnumber..".ogg",false)
 				setElementData(localPlayer,"volume",100)
 				setTimer(function() setElementData(localPlayer,"volume",0) end,1500,1)
 			elseif randomsound >= 21 and randomsound <= 40 then	
 				setElementData(localPlayer,"volume",100)
 				setTimer(function() setElementData(localPlayer,"volume",0) end,1500,1)
-				playSound(":DayZ/sounds/status/sneezing.mp3",false)
+				playSound("sounds/status/sneezing.mp3",false)
 			end
 		end
 	end
@@ -611,8 +611,8 @@ function drawHourGlass()
 	else
 		hourglassrotation = hourglassrotation+4
 	end
-	dxDrawImage(w * 0.3900, h * 0.3217, w * 0.2500, h * 0.3333, ":DayZ/gui/status/misc/circle.png", 0, 0, 0, tocolor(255, 255, 255, 255), false)
-	dxDrawImage(w * 0.4363, h * 0.3567, w * 0.1563, h * 0.2583, ":DayZ/gui/status/misc/hourglass.png", hourglassrotation, 0, 0, tocolor(255, 255, 255, 255), false)
+	dxDrawImage(w * 0.3900, h * 0.3217, w * 0.2500, h * 0.3333, "gui/status/misc/circle.png", 0, 0, 0, tocolor(255, 255, 255, 255), false)
+	dxDrawImage(w * 0.4363, h * 0.3567, w * 0.1563, h * 0.2583, "gui/status/misc/hourglass.png", hourglassrotation, 0, 0, tocolor(255, 255, 255, 255), false)
 end
 
 local backpackLoadTable = {}
