@@ -19,15 +19,15 @@ JournalTable = {
 local font = {}
 local isJournalOpen = false
 local isWriting = false
-font[1] = guiCreateFont(":DayZ/fonts/needhelp.ttf",30)
-font[2] = guiCreateFont(":DayZ/fonts/needhelp.ttf",17)
+font[1] = guiCreateFont("fonts/needhelp.ttf",30)
+font[2] = guiCreateFont("fonts/needhelp.ttf",17)
 
 function showJournal()
 	if getElementData(localPlayer,"logedin") then
 		if not isJournalOpen then
 			isJournalOpen = true
 			showCursor(true)
-			playSound(":DayZ/sounds/status/journal.wav",false)
+			playSound("sounds/status/journal.wav",false)
 			guiSetVisible(JournalTable.image[1],true)
 			guiSetText(JournalTable.label[1],"Day "..getElementData(localPlayer,"daysalive"))
 			local x,y,z = getElementPosition(localPlayer)
@@ -63,7 +63,7 @@ function writeDeselected (b,s)
 end
 
 function initJournal()
-	JournalTable.image[1] = guiCreateStaticImage(0.00, 0.06, 1.00, 0.90, ":DayZ/gui/journal/images/journal_page1.png", true)
+	JournalTable.image[1] = guiCreateStaticImage(0.00, 0.06, 1.00, 0.90, "gui/journal/images/journal_page1.png", true)
 	JournalTable.label[1] = guiCreateLabel(0.09, 0.09, 0.40, 0.06, "Day 0", true, JournalTable.image[1])
 	guiLabelSetColor(JournalTable.label[1], 0, 0, 0)
 	guiLabelSetHorizontalAlign(JournalTable.label[1], "left", true)
