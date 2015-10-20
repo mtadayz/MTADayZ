@@ -16,7 +16,7 @@ local font = {}
 local number = 0
 local moveDown = 0
 local playerPickedUpItem = false
-font[1] = guiCreateFont(":DayZ/fonts/etelka.ttf", 10)
+font[1] = guiCreateFont("fonts/etelka.ttf", 10)
 
 function initSideMenu()
 	for i = 1, 7 do
@@ -24,9 +24,9 @@ function initSideMenu()
 		moveDown = moveDown+0.025
 		row[number] = ""
 		if number == 1 then
-			rowImage[1] = guiCreateStaticImage(0,0.400+moveDown,0.3,0.03,":DayZ/gui/gear/items/scrollmenu_1.png",true)
+			rowImage[1] = guiCreateStaticImage(0,0.400+moveDown,0.3,0.03,"gui/gear/items/scrollmenu_1.png",true)
 		else
-			rowImage[number] = guiCreateStaticImage(0,0.400+moveDown,0.3,0.03,":DayZ/gui/gear/items/scrollmenu_3.png",true)
+			rowImage[number] = guiCreateStaticImage(0,0.400+moveDown,0.3,0.03,"gui/gear/items/scrollmenu_3.png",true)
 		end
 		rowText[number] = guiCreateLabel(0.05,0.05,0.995,0.95,row[number],true,rowImage[number])
 		guiLabelSetColor(rowText[number],113,238,17)
@@ -251,36 +251,36 @@ if arg == "up" then
 			setElementData(rowText[6],"markedMenuItem",true)
 			guiLabelSetColor (rowText[1],113,238,17)
 			guiLabelSetColor (rowText[6],255,255,255)
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[6],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[6],"gui/gear/items/scrollmenu_1.png")
 		elseif guiGetVisible(rowImage[5]) then
 			setElementData(rowText[1],"markedMenuItem",false)
 			setElementData(rowText[5],"markedMenuItem",true)
 			guiLabelSetColor (rowText[1],113,238,17)
 			guiLabelSetColor (rowText[5],255,255,255)
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[5],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[5],"gui/gear/items/scrollmenu_1.png")
 		elseif guiGetVisible(rowImage[4]) then
 			setElementData(rowText[1],"markedMenuItem",false)
 			setElementData(rowText[4],"markedMenuItem",true)
 			guiLabelSetColor (rowText[1],113,238,17)
 			guiLabelSetColor (rowText[4],255,255,255)
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[4],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[4],"gui/gear/items/scrollmenu_1.png")
 		elseif guiGetVisible(rowImage[3]) then
 			setElementData(rowText[1],"markedMenuItem",false)
 			setElementData(rowText[3],"markedMenuItem",true)
 			guiLabelSetColor (rowText[1],113,238,17)
 			guiLabelSetColor (rowText[3],255,255,255)
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[3],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[3],"gui/gear/items/scrollmenu_1.png")
 		elseif guiGetVisible(rowImage[2]) then
 			setElementData(rowText[1],"markedMenuItem",false)
 			setElementData(rowText[2],"markedMenuItem",true)
 			guiLabelSetColor (rowText[1],113,238,17)
 			guiLabelSetColor (rowText[2],255,255,255)
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[2],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[2],"gui/gear/items/scrollmenu_1.png")
 		end
 	elseif getElementData(rowText[2],"markedMenuItem") then
 		if guiGetVisible(rowImage[1]) then
@@ -288,8 +288,8 @@ if arg == "up" then
 			setElementData(rowText[1],"markedMenuItem",true)
 			guiLabelSetColor (rowText[2],113,238,17)
 			guiLabelSetColor (rowText[1],255,255,255)
-			guiStaticImageLoadImage(rowImage[2],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[2],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_1.png")
 		end
 	elseif getElementData(rowText[3],"markedMenuItem") then
 		if guiGetVisible(rowImage[2]) then
@@ -297,15 +297,15 @@ if arg == "up" then
 			setElementData(rowText[2],"markedMenuItem",true)
 			guiLabelSetColor (rowText[3],113,238,17)
 			guiLabelSetColor (rowText[2],255,255,255)
-			guiStaticImageLoadImage(rowImage[3],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[2],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[3],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[2],"gui/gear/items/scrollmenu_1.png")
 		else
 			setElementData(rowText[3],"markedMenuItem",false)
 			setElementData(rowText[1],"markedMenuItem",true)
 			guiLabelSetColor (rowText[3],113,238,17)
 			guiLabelSetColor (rowText[1],255,255,255)
-			guiStaticImageLoadImage(rowImage[3],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[3],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_1.png")
 		end
 	elseif getElementData(rowText[4],"markedMenuItem") then
 		if guiGetVisible(rowImage[3]) then
@@ -313,15 +313,15 @@ if arg == "up" then
 			setElementData(rowText[3],"markedMenuItem",true)
 			guiLabelSetColor (rowText[4],113,238,17)
 			guiLabelSetColor (rowText[3],255,255,255)
-			guiStaticImageLoadImage(rowImage[4],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[3],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[4],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[3],"gui/gear/items/scrollmenu_1.png")
 		else
 			setElementData(rowText[4],"markedMenuItem",false)
 			setElementData(rowText[1],"markedMenuItem",true)
 			guiLabelSetColor (rowText[4],113,238,17)
 			guiLabelSetColor (rowText[1],255,255,255)
-			guiStaticImageLoadImage(rowImage[4],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[4],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_1.png")
 		end
 	elseif getElementData(rowText[5],"markedMenuItem") then
 		if guiGetVisible(rowImage[5]) then
@@ -329,15 +329,15 @@ if arg == "up" then
 			setElementData(rowText[4],"markedMenuItem",true)
 			guiLabelSetColor (rowText[5],113,238,17)
 			guiLabelSetColor (rowText[4],255,255,255)
-			guiStaticImageLoadImage(rowImage[5],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[4],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[5],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[4],"gui/gear/items/scrollmenu_1.png")
 		else
 			setElementData(rowText[5],"markedMenuItem",false)
 			setElementData(rowText[1],"markedMenuItem",true)
 			guiLabelSetColor (rowText[5],113,238,17)
 			guiLabelSetColor (rowText[1],255,255,255)
-			guiStaticImageLoadImage(rowImage[5],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[5],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_1.png")
 		end
 	end
 elseif arg == "down" then
@@ -347,8 +347,8 @@ elseif arg == "down" then
 			setElementData(rowText[2],"markedMenuItem",true)
 			guiLabelSetColor (rowText[1],113,238,17)
 			guiLabelSetColor (rowText[2],255,255,255)
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[2],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[2],"gui/gear/items/scrollmenu_1.png")
 		end
 	elseif getElementData(rowText[2],"markedMenuItem") then
 		if guiGetVisible(rowImage[3]) then
@@ -356,15 +356,15 @@ elseif arg == "down" then
 			setElementData(rowText[3],"markedMenuItem",true)
 			guiLabelSetColor (rowText[2],113,238,17)
 			guiLabelSetColor (rowText[3],255,255,255)
-			guiStaticImageLoadImage(rowImage[2],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[3],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[2],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[3],"gui/gear/items/scrollmenu_1.png")
 		else
 			setElementData(rowText[2],"markedMenuItem",false)
 			setElementData(rowText[1],"markedMenuItem",true)
 			guiLabelSetColor (rowText[2],113,238,17)
 			guiLabelSetColor (rowText[1],255,255,255)
-			guiStaticImageLoadImage(rowImage[2],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[2],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_1.png")
 		end
 	elseif getElementData(rowText[3],"markedMenuItem") then
 		if guiGetVisible(rowImage[4]) then
@@ -372,15 +372,15 @@ elseif arg == "down" then
 			setElementData(rowText[4],"markedMenuItem",true)
 			guiLabelSetColor (rowText[3],113,238,17)
 			guiLabelSetColor (rowText[4],255,255,255)
-			guiStaticImageLoadImage(rowImage[3],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[4],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[3],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[4],"gui/gear/items/scrollmenu_1.png")
 		else
 			setElementData(rowText[3],"markedMenuItem",false)
 			setElementData(rowText[1],"markedMenuItem",true)
 			guiLabelSetColor (rowText[3],113,238,17)
 			guiLabelSetColor (rowText[1],255,255,255)
-			guiStaticImageLoadImage(rowImage[3],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[3],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_1.png")
 		end
 	elseif getElementData(rowText[4],"markedMenuItem") then
 		if guiGetVisible(rowImage[5]) then
@@ -388,15 +388,15 @@ elseif arg == "down" then
 			setElementData(rowText[5],"markedMenuItem",true)
 			guiLabelSetColor (rowText[4],113,238,17)
 			guiLabelSetColor (rowText[5],255,255,255)
-			guiStaticImageLoadImage(rowImage[4],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[5],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[4],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[5],"gui/gear/items/scrollmenu_1.png")
 		else
 			setElementData(rowText[4],"markedMenuItem",false)
 			setElementData(rowText[1],"markedMenuItem",true)
 			guiLabelSetColor (rowText[4],113,238,17)
 			guiLabelSetColor (rowText[1],255,255,255)
-			guiStaticImageLoadImage(rowImage[4],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[4],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_1.png")
 		end
 	elseif getElementData(rowText[5],"markedMenuItem") then
 		if guiGetVisible(rowImage[6]) then
@@ -404,15 +404,15 @@ elseif arg == "down" then
 			setElementData(rowText[6],"markedMenuItem",true)
 			guiLabelSetColor (rowText[5],113,238,17)
 			guiLabelSetColor (rowText[6],255,255,255)
-			guiStaticImageLoadImage(rowImage[5],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[6],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[5],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[6],"gui/gear/items/scrollmenu_1.png")
 		else
 			setElementData(rowText[5],"markedMenuItem",false)
 			setElementData(rowText[1],"markedMenuItem",true)
 			guiLabelSetColor (rowText[5],113,238,17)
 			guiLabelSetColor (rowText[1],255,255,255)
-			guiStaticImageLoadImage(rowImage[5],":DayZ/gui/gear/items/scrollmenu_3.png")
-			guiStaticImageLoadImage(rowImage[1],":DayZ/gui/gear/items/scrollmenu_1.png")
+			guiStaticImageLoadImage(rowImage[5],"gui/gear/items/scrollmenu_3.png")
+			guiStaticImageLoadImage(rowImage[1],"gui/gear/items/scrollmenu_1.png")
 		end
 	end
 end
