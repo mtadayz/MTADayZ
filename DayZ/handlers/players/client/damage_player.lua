@@ -81,7 +81,7 @@ function playerDayZDamage(attacker,weapon,bodypart,loss)
 		end
 		if bodypart == 7 or bodypart == 8 then
 			setElementData(localPlayer,"brokenbone",true)
-			playSound(":DayZ/sounds/status/bonecrack.mp3",false)
+			playSound("sounds/status/bonecrack.mp3",false)
 		end
 		if getElementData(localPlayer,"humanity") >= 5000 then
 			if damage <= 1000 then
@@ -194,8 +194,8 @@ function disableCameraOnSwitch ( prevSlot, newSlot )
 end
 addEventHandler ("onClientPlayerWeaponSwitch",root,disableCameraOnSwitch)
 
-local binoculars = guiCreateStaticImage(0,0,1,1,":DayZ/gui/gear/items/binoculars.png",true)
-local rangefinder = guiCreateStaticImage(0,0,1,1,":DayZ/gui/gear/items/rangefinder.png",true)
+local binoculars = guiCreateStaticImage(0,0,1,1,"gui/gear/items/binoculars.png",true)
+local rangefinder = guiCreateStaticImage(0,0,1,1,"gui/gear/items/rangefinder.png",true)
 guiSetVisible(binoculars,false)
 guiSetVisible(rangefinder,false)
 
