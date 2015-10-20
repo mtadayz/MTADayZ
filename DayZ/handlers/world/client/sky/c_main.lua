@@ -33,19 +33,19 @@ local moonPhase = 0
 function startDynamicSky()
 	if dsEffectEnabled then return end
 	
-	shaderTable.skyboxTropos = dxCreateShader ( ":DayZ/handlers/world/client/sky/fx/shader_dynamicSky2tropos.fx", 2, 0, false, "object" )
-	shaderTable.skyboxStratos = dxCreateShader ( ":DayZ/handlers/world/client/sky/fx/shader_dynamicSky2stratos.fx", 2, 0, false, "object" )
-	shaderTable.skyboxBottom = dxCreateShader ( ":DayZ/handlers/world/client/sky/fx/shader_dynamicSky2bottom.fx", 3, 0, false, "object" )
-	shaderTable.clear = dxCreateShader ( ":DayZ/handlers/world/client/sky/fx/shader_clear.fx", 3, 0, false, "world" )
-	textureTable.cloud = dxCreateTexture ( ":DayZ/handlers/world/client/sky/tex/clouds.dds", "dxt5" )
-	textureTable.cloudrain = dxCreateTexture(":DayZ/handlers/world/client/sky/tex/clouds_rain.dds", "dxt5")
-	textureTable.cloudstorm = dxCreateTexture(":DayZ/handlers/world/client/sky/tex/clouds_storm.dds", "dxt5")
-	textureTable.cloudcloudy = dxCreateTexture(":DayZ/handlers/world/client/sky/tex/clouds_cloudy.dds", "dxt5")
-	textureTable.normal = dxCreateTexture ( ":DayZ/handlers/world/client/sky/tex/clouds_normal.jpg", "dxt5" ) 
-	textureTable.cloudnight = dxCreateTexture(":DayZ/handlers/world/client/sky/tex/clouds_night.dds", "dxt5")
-	textureTable.skybox = dxCreateTexture ( ":DayZ/handlers/world/client/sky/tex/skybox.dds", "dxt5" )
+	shaderTable.skyboxTropos = dxCreateShader ( "handlers/world/client/sky/fx/shader_dynamicSky2tropos.fx", 2, 0, false, "object" )
+	shaderTable.skyboxStratos = dxCreateShader ( "handlers/world/client/sky/fx/shader_dynamicSky2stratos.fx", 2, 0, false, "object" )
+	shaderTable.skyboxBottom = dxCreateShader ( "handlers/world/client/sky/fx/shader_dynamicSky2bottom.fx", 3, 0, false, "object" )
+	shaderTable.clear = dxCreateShader ( "handlers/world/client/sky/fx/shader_clear.fx", 3, 0, false, "world" )
+	textureTable.cloud = dxCreateTexture ( "handlers/world/client/sky/tex/clouds.dds", "dxt5" )
+	textureTable.cloudrain = dxCreateTexture("handlers/world/client/sky/tex/clouds_rain.dds", "dxt5")
+	textureTable.cloudstorm = dxCreateTexture("handlers/world/client/sky/tex/clouds_storm.dds", "dxt5")
+	textureTable.cloudcloudy = dxCreateTexture("handlers/world/client/sky/tex/clouds_cloudy.dds", "dxt5")
+	textureTable.normal = dxCreateTexture ( "handlers/world/client/sky/tex/clouds_normal.jpg", "dxt5" ) 
+	textureTable.cloudnight = dxCreateTexture("handlers/world/client/sky/tex/clouds_night.dds", "dxt5")
+	textureTable.skybox = dxCreateTexture ( "handlers/world/client/sky/tex/skybox.dds", "dxt5" )
 	moonPhase = getCurrentMoonPhase()
-	textureTable.moon = dxCreateTexture ( ":DayZ/handlers/world/client/sky/tex/moon/"..toint( 20 - toint( moonPhase * 20 ) )..".png" )
+	textureTable.moon = dxCreateTexture ( "handlers/world/client/sky/tex/moon/"..toint( 20 - toint( moonPhase * 20 ) )..".png" )
 	
 	-- Get list of all elements used
 	effectParts = {
@@ -111,9 +111,9 @@ function startDynamicSky()
 	setMoonSize( 0 )
     setCloudsEnabled( dynamicSkySettings.enableIngameClouds )
 	
-	modelTable.txd = engineLoadTXD( ':DayZ/handlers/world/client/sky/tex/skybox_model.txd' )
+	modelTable.txd = engineLoadTXD( 'handlers/world/client/sky/tex/skybox_model.txd' )
 	engineImportTXD( modelTable.txd, dynamicSkySettings.modelID)
-	modelTable.dff = engineLoadDFF( ':DayZ/handlers/world/client/sky/dff/skybox_model.dff', dynamicSkySettings.modelID )
+	modelTable.dff = engineLoadDFF( 'handlers/world/client/sky/dff/skybox_model.dff', dynamicSkySettings.modelID )
 	engineReplaceModel( modelTable.dff, dynamicSkySettings.modelID, true )  
 
 	local camX, camY, camZ = getElementPosition( getLocalPlayer() )
