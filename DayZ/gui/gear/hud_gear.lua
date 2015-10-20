@@ -15,7 +15,7 @@ local worldmap
 local gpsborder
 local alpha = 255
 local font = {}
-font[1] = dxCreateFont(":DayZ/fonts/bitstream.ttf", 10)
+font[1] = dxCreateFont("fonts/bitstream.ttf", 10)
 
 local worldW, worldH = 3200, 3200
 local blip = 12 
@@ -136,7 +136,7 @@ function drawTheMap()
 	local camX,camY,camZ = getElementRotation(getCamera())
 	if alwaysRenderMap or getElementInterior(localPlayer) == 0 then
 		dxDrawRectangle(0, 0, sx, sy, tocolor(176, 200, 210,255))
-		dxDrawImage(X - worldW/2, Y - worldH/2, worldW, worldH, ":DayZ/gui/gear/items/world.png", 0, (x/(6000/worldW)), -(y/(6000/worldH)), tocolor(255, 255, 255, 255))
+		dxDrawImage(X - worldW/2, Y - worldH/2, worldW, worldH, "gui/gear/items/world.png", 0, (x/(6000/worldW)), -(y/(6000/worldH)), tocolor(255, 255, 255, 255))
 	end
 	local col = tocolor(r, g, b, 190)
 	local bg = tocolor(r, g, b, 100)
@@ -164,10 +164,10 @@ function drawTheMap()
 					bcR, bcG, bcB = getBlipColor(v)
 				end
 			local bS = getBlipSize(v)
-			dxDrawImage(bpx -(blip*bS)*xFactor/2, bpy -(blip*bS)*yFactor/2, (blip*bS)*xFactor, (blip*bS)*yFactor, ":DayZ/gui/gear/items/blip/0.png", 0, 0, 0, tocolor(bcR, bcG, bcB, alpha))
+			dxDrawImage(bpx -(blip*bS)*xFactor/2, bpy -(blip*bS)*yFactor/2, (blip*bS)*xFactor, (blip*bS)*yFactor, "gui/gear/items/blip/0.png", 0, 0, 0, tocolor(bcR, bcG, bcB, alpha))
 		end
 	end
-	dxDrawImage(sx * 0.5, sy * 0.5, (blip*2)*xFactor, (blip*2)*yFactor, ":DayZ/gui/gear/items/player.png", camZ-rz, 0, 0, tocolor(255,30,0,255))
+	dxDrawImage(sx * 0.5, sy * 0.5, (blip*2)*xFactor, (blip*2)*yFactor, "gui/gear/items/player.png", camZ-rz, 0, 0, tocolor(255,30,0,255))
 end
 
 function drawTheGPS()
@@ -179,10 +179,10 @@ function drawTheGPS()
 		dxSetRenderTarget(rt, true)
 		if alwaysRenderMap or getElementInterior(localPlayer) == 0 then
 			dxDrawRectangle(0, 0, mW, mH, tocolor(176, 200, 210,alpha)) --render background
-			worldmap = dxDrawImage(X - 3072/2, mH/5 + (Y - 3072/2), 3072, 3072, ":DayZ/gui/gear/items/radarworld.png", camZ, (x/(6000/(3072))), -(y/(6000/3072)), tocolor(255, 255, 255, alpha))
+			worldmap = dxDrawImage(X - 3072/2, mH/5 + (Y - 3072/2), 3072, 3072, "gui/gear/items/radarworld.png", camZ, (x/(6000/(3072))), -(y/(6000/3072)), tocolor(255, 255, 255, alpha))
 		end
 		dxSetRenderTarget()
-		gpsborder = dxDrawImage((990)*xFactor, sy-((300+10))*yFactor, (300)*xFactor, (200)*yFactor, ":DayZ/gui/gear/items/gps.png",0,0,0,tocolor(255,255,255,alpha),true)
+		gpsborder = dxDrawImage((990)*xFactor, sy-((300+10))*yFactor, (300)*xFactor, (200)*yFactor, "gui/gear/items/gps.png",0,0,0,tocolor(255,255,255,alpha),true)
 		--dxDrawRectangle((10)*xFactor, sy-((200+10))*yFactor, (300)*xFactor, (200)*yFactor, tocolor(0, 0, 0, 175))
 		dxDrawImage((5+1000)*xFactor, sy-((300+10))*yFactor, (300-30)*xFactor, (175)*yFactor, rt, 0, 0, 0, tocolor(255, 255, 255, alpha))
 		local col = tocolor(r, g, b, 190)
@@ -211,7 +211,7 @@ function drawTheGPS()
 						bcR, bcG, bcB = getBlipColor(v)
 					end
 				local bS = getBlipSize(v)
-				--dxDrawImage(bpx -(blip*bS)*xFactor/2, bpy -(blip*bS)*yFactor/2, (blip*bS)*xFactor, (blip*bS)*yFactor, ":DayZ/gui/gear/items/blip/0.png", 0, 0, 0, tocolor(bcR, bcG, bcB, alpha))
+				--dxDrawImage(bpx -(blip*bS)*xFactor/2, bpy -(blip*bS)*yFactor/2, (blip*bS)*xFactor, (blip*bS)*yFactor, "gui/gear/items/blip/0.png", 0, 0, 0, tocolor(bcR, bcG, bcB, alpha))
 			end
 		end
 		if renderNorthBlip then
@@ -224,10 +224,10 @@ function drawTheGPS()
 			if bpx and bpy then --if position was obtained successfully
 				local bpx = math.max(lB, math.min(rB, bpx))
 				local bpy = math.max(tB, math.min(bB, bpy)) --cap position just in case
-				--dxDrawImage(bpx -(blip*2)/2, bpy -(blip*2)/2, blip*2, blip*2, ":DayZ/gui/gear/items/blip/4.png", 0, 0, 0) --draw north (4) blip
+				--dxDrawImage(bpx -(blip*2)/2, bpy -(blip*2)/2, blip*2, blip*2, "gui/gear/items/blip/4.png", 0, 0, 0) --draw north (4) blip
 			end
 		end
-		--dxDrawImage(cX -(blip*2)*xFactor/2, cY -(blip*2)*yFactor/2, (blip*2)*xFactor, (blip*2)*yFactor, ":DayZ/gui/gear/items/player.png", camZ-rz, 0, 0, tocolor(255,30,0,alpha))
+		--dxDrawImage(cX -(blip*2)*xFactor/2, cY -(blip*2)*yFactor/2, (blip*2)*xFactor, (blip*2)*yFactor, "gui/gear/items/player.png", camZ-rz, 0, 0, tocolor(255,30,0,alpha))
 	end
 end
 
@@ -245,8 +245,8 @@ function drawTheCompass()
 		bX, bY, bX2, bY2 = 0.0549, 0.4961, 0.1296, 0.2279
 		aX, aY, aX2, aY2 = 0.0644, 0.5130, 0.1098, 0.1914
 	end
-	dxDrawImage(sx * bX, sy * bY, sx * bX2, sy * bY2, ":DayZ/gui/gear/items/compassborder.png" )
-	dxDrawImage(sx * aX, sy * aY, sx * aX2, sy * aY2, ":DayZ/gui/gear/items/compassarrow.png", rz )
+	dxDrawImage(sx * bX, sy * bY, sx * bX2, sy * bY2, "gui/gear/items/compassborder.png" )
+	dxDrawImage(sx * aX, sy * aY, sx * aX2, sy * aY2, "gui/gear/items/compassarrow.png", rz )
 end
 
 function hideGPSOnInventoryOpen()
@@ -262,10 +262,10 @@ addEvent("showGPSOnInventoryClose",true)
 addEventHandler("showGPSOnInventoryClose",root,showGPSOnInventoryClose)
 
 
-nightvisionimage = guiCreateStaticImage(0,0,1,1,":DayZ/gui/gear/items/nightvision.png",true)
+nightvisionimage = guiCreateStaticImage(0,0,1,1,"gui/gear/items/nightvision.png",true)
 guiSetVisible(nightvisionimage,false)
 
-infravision = guiCreateStaticImage(0,0,1,1,":DayZ/gui/gear/items/infravision.png",true)
+infravision = guiCreateStaticImage(0,0,1,1,"gui/gear/items/infravision.png",true)
 guiSetVisible(infravision,false)
 
 function playerActivateGoggles (key,keyState)
@@ -461,10 +461,10 @@ function magsLeft()
 end
 
 statsLabel = {}
-statsFont = guiCreateFont(":DayZ/fonts/bitstream.ttf",8)
+statsFont = guiCreateFont("fonts/bitstream.ttf",8)
 
 
-statsWindows = guiCreateStaticImage(0.775,0.2,0.225,0.22,":DayZ/gui/gear/items/debug.png",true)
+statsWindows = guiCreateStaticImage(0.775,0.2,0.225,0.22,"gui/gear/items/debug.png",true)
 guiSetAlpha(statsWindows,0.9)
 guiSetVisible(statsWindows,false)
 --Zombies  Killed
@@ -582,4 +582,4 @@ function refreshDebugMonitor()
 		guiSetText(statsLabel["name"],"Name: "..getPlayerName(getLocalPlayer()))
 	end			
 end
-addEventHandler("onClientRender",root,refreshDebugMonitor)
+setTimer(refreshDebugMonitor,1000,0)
