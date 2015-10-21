@@ -29,24 +29,24 @@ function updateStatusIcons()
 		-- // Normal Icons (Sound etc.) // --
 		-- Sound
 		local sound = getElementData(localPlayer,"volume")
-		dxDrawImage( screenWidth*0.9325 , screenHeight*0.41, screenHeight*0.075, screenHeight*0.075, ":DayZ/gui/status/misc/background.png",0,0,0)
-		dxDrawImage ( screenWidth*0.9325 , screenHeight*0.41, screenHeight*0.075, screenHeight*0.075, ":DayZ/gui/status/misc/sound.png",0,0,0,tocolor(255,255,255,(sound*2.5)+5))
+		dxDrawImage( screenWidth*0.9325 , screenHeight*0.41, screenHeight*0.075, screenHeight*0.075, "gui/status/misc/background.png",0,0,0)
+		dxDrawImage ( screenWidth*0.9325 , screenHeight*0.41, screenHeight*0.075, screenHeight*0.075, "gui/status/misc/sound.png",0,0,0,tocolor(255,255,255,(sound*2.5)+5))
 		--[[if sound > 0 then
-			dxDrawImage ( screenWidth*0.9075 , screenHeight*0.41, screenHeight*0.075, screenHeight*0.075, ":DayZ/gui/status/misc/level_"..sound..".png",0,0,0)
+			dxDrawImage ( screenWidth*0.9075 , screenHeight*0.41, screenHeight*0.075, screenHeight*0.075, "gui/status/misc/level_"..sound..".png",0,0,0)
 		end
 		]]
 		-- Visibility
 		local visibility = getElementData(localPlayer,"visibly")
-		dxDrawImage ( screenWidth*0.9325 , screenHeight*0.475, screenHeight*0.075, screenHeight*0.075, ":DayZ/gui/status/misc/background.png",0,0,0)
-		dxDrawImage ( screenWidth*0.9325 , screenHeight*0.475, screenHeight*0.075, screenHeight*0.075, ":DayZ/gui/status/misc/eye.png",0,0,0,tocolor(255,255,255,(visibility*2.5)+5))
+		dxDrawImage ( screenWidth*0.9325 , screenHeight*0.475, screenHeight*0.075, screenHeight*0.075, "gui/status/misc/background.png",0,0,0)
+		dxDrawImage ( screenWidth*0.9325 , screenHeight*0.475, screenHeight*0.075, screenHeight*0.075, "gui/status/misc/eye.png",0,0,0,tocolor(255,255,255,(visibility*2.5)+5))
 		--[[
 		if visibility > 0 then
-			dxDrawImage ( screenWidth*0.9075 , screenHeight*0.475, screenHeight*0.075, screenHeight*0.075, ":DayZ/gui/status/misc/level_"..visibility..".png",0,0,0)
+			dxDrawImage ( screenWidth*0.9075 , screenHeight*0.475, screenHeight*0.075, screenHeight*0.075, "gui/status/misc/level_"..visibility..".png",0,0,0)
 		end
 		]]
 		-- Humanity	
 		local humanity = getElementData(localPlayer,"humanity")
-		local humanity_icon = ":DayZ/gui/status/humanity/2500.png"
+		local humanity_icon = "gui/status/humanity/2500.png"
 		local h_number = 0
 		if humanity >= 5000 and humanity >= 3501 then
 			h_number = 5
@@ -61,8 +61,8 @@ function updateStatusIcons()
 		elseif humanity >= -2500 then
 			h_number = 0
 		end
-		dxDrawImage ( screenWidth*0.94 , screenHeight*0.63, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/misc/background.png",0,0,0)
-		dxDrawImage ( screenWidth*0.943 , screenHeight*0.63, screenHeight*0.055, screenHeight*0.055, ":DayZ/gui/status/humanity/"..h_number..".png",0,0,0)
+		dxDrawImage ( screenWidth*0.94 , screenHeight*0.63, screenHeight*0.065, screenHeight*0.065, "gui/status/misc/background.png",0,0,0)
+		dxDrawImage ( screenWidth*0.943 , screenHeight*0.63, screenHeight*0.055, screenHeight*0.055, "gui/status/humanity/"..h_number..".png",0,0,0)
 		-- Temperature
 		local temperature = math.round(getElementData(localPlayer,"temperature"),2)
 		r,g,b = 0,255,0
@@ -79,40 +79,40 @@ function updateStatusIcons()
 			r,g,b = 255,0,0
 		end
 		if value > 215 then
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/misc/background.png",0,0,0)
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/temperature/temperature_border.png",0,0,0)
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/temperature/"..t_number..".png",0,0,0,tocolor(r,g,b,fading))
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, "gui/status/misc/background.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, "gui/status/temperature/temperature_border.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, "gui/status/temperature/"..t_number..".png",0,0,0,tocolor(r,g,b,fading))
 		else
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/misc/background.png",0,0,0)
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/temperature/temperature_border.png",0,0,0)
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/temperature/"..t_number..".png",0,0,0,tocolor(r,g,b))
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, "gui/status/misc/background.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, "gui/status/temperature/temperature_border.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.7, screenHeight*0.065, screenHeight*0.065, "gui/status/temperature/"..t_number..".png",0,0,0,tocolor(r,g,b))
 		end
 		-- Thirst
 		r,g,b = 0,255,0
 		local thirst = getElementData(localPlayer,"thirst")
 		local thirst_coloring = getElementData(localPlayer,"thirst")*2.55
 		r,g,b = 255-thirst_coloring,thirst_coloring,0
-		local thirst_icon = ":DayZ/gui/status/thirst/100.png"
+		local thirst_icon = "gui/status/thirst/100.png"
 		if thirst >= 100 and thirst <= 81 then
-			thirst_icon = ":DayZ/gui/status/thirst/100.png"
+			thirst_icon = "gui/status/thirst/100.png"
 		elseif thirst <= 80 and thirst >= 61 then
-			thirst_icon = ":DayZ/gui/status/thirst/80.png"
+			thirst_icon = "gui/status/thirst/80.png"
 		elseif thirst <= 60 and thirst >= 41 then
-			thirst_icon = ":DayZ/gui/status/thirst/60.png"
+			thirst_icon = "gui/status/thirst/60.png"
 		elseif thirst <= 40 and thirst >= 21 then
-			thirst_icon = ":DayZ/gui/status/thirst/40.png"
+			thirst_icon = "gui/status/thirst/40.png"
 		elseif thirst <= 20 and thirst >= 1 then
-			thirst_icon = ":DayZ/gui/status/thirst/20.png"
+			thirst_icon = "gui/status/thirst/20.png"
 		elseif thirst < 1 then
-			thirst_icon = ":DayZ/gui/status/thirst/0.png"
+			thirst_icon = "gui/status/thirst/0.png"
 		end
 		if thirst_coloring < 15 then
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.775, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/misc/background.png",0,0,0)
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.775, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/thirst/thirst_border.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.775, screenHeight*0.065, screenHeight*0.065, "gui/status/misc/background.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.775, screenHeight*0.065, screenHeight*0.065, "gui/status/thirst/thirst_border.png",0,0,0)
 			dxDrawImage ( screenWidth*0.94 , screenHeight*0.775, screenHeight*0.065, screenHeight*0.065, thirst_icon,0,0,0,tocolor(r,g,b,fading))
 		else
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.775, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/misc/background.png",0,0,0)
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.775, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/thirst/thirst_border.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.775, screenHeight*0.065, screenHeight*0.065, "gui/status/misc/background.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.775, screenHeight*0.065, screenHeight*0.065, "gui/status/thirst/thirst_border.png",0,0,0)
 			dxDrawImage ( screenWidth*0.94 , screenHeight*0.775, screenHeight*0.065, screenHeight*0.065, thirst_icon,0,0,0,tocolor(r,g,b))
 		end
 		-- Blood
@@ -120,61 +120,61 @@ function updateStatusIcons()
 		local blood = getElementData(localPlayer,"blood")
 		local blood_coloring = getElementData(localPlayer,"blood")/47.2
 		r,g,b = 255-blood_coloring,blood_coloring,0
-		local blood_icon = ":DayZ/gui/status/blood/12000.png"
+		local blood_icon = "gui/status/blood/12000.png"
 		if blood >= 12000 and blood >= 10001 then
-			blood_icon = ":DayZ/gui/status/blood/12000.png"
+			blood_icon = "gui/status/blood/12000.png"
 		elseif blood <= 10000 and blood >= 8001 then
-			blood_icon = ":DayZ/gui/status/blood/10000.png"
+			blood_icon = "gui/status/blood/10000.png"
 		elseif blood <= 8000 and blood >= 6001 then
-			blood_icon = ":DayZ/gui/status/blood/8000.png"
+			blood_icon = "gui/status/blood/8000.png"
 		elseif blood <= 6000 and blood >= 4001 then
-			blood_icon = ":DayZ/gui/status/blood/6000.png"
+			blood_icon = "gui/status/blood/6000.png"
 		elseif blood <= 4000 and blood >= 2001 then
-			blood_icon = ":DayZ/gui/status/blood/4000.png"
+			blood_icon = "gui/status/blood/4000.png"
 		elseif blood <= 2000 then
-			blood_icon = ":DayZ/gui/status/blood/2000.png"
+			blood_icon = "gui/status/blood/2000.png"
 		end	
-		dxDrawImage ( screenWidth*0.94 , screenHeight*0.85, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/misc/background.png",0,0,0)	
-		dxDrawImage ( screenWidth*0.94 , screenHeight*0.85, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/blood/blood_border.png",0,0,0)			
+		dxDrawImage ( screenWidth*0.94 , screenHeight*0.85, screenHeight*0.065, screenHeight*0.065, "gui/status/misc/background.png",0,0,0)	
+		dxDrawImage ( screenWidth*0.94 , screenHeight*0.85, screenHeight*0.065, screenHeight*0.065, "gui/status/blood/blood_border.png",0,0,0)			
 		dxDrawImage ( screenWidth*0.94 , screenHeight*0.85, screenHeight*0.065, screenHeight*0.065, blood_icon,0,0,0,tocolor(r,g,b))
 		-- Food
 		r,g,b = 0,255,0
 		local food = getElementData(localPlayer,"food")
 		local food_coloring = getElementData(localPlayer,"food")*2.55
 		r,g,b = 255-food_coloring,food_coloring,0
-		local food_icon = ":DayZ/gui/status/hunger/100.png"
+		local food_icon = "gui/status/hunger/100.png"
 		if food >= 100 and food <= 81 then
-			food_icon = ":DayZ/gui/status/hunger/100.png"
+			food_icon = "gui/status/hunger/100.png"
 		elseif food <= 80 and food >= 61 then
-			food_icon = ":DayZ/gui/status/hunger/80.png"
+			food_icon = "gui/status/hunger/80.png"
 		elseif food <= 60 and food >= 41 then
-			food_icon = ":DayZ/gui/status/hunger/60.png"
+			food_icon = "gui/status/hunger/60.png"
 		elseif food <= 40 and food >= 21 then
-			food_icon = ":DayZ/gui/status/hunger/40.png"
+			food_icon = "gui/status/hunger/40.png"
 		elseif food <= 20 and food >= 1 then
-			food_icon = ":DayZ/gui/status/hunger/20.png"
+			food_icon = "gui/status/hunger/20.png"
 		elseif food < 1 then
-			food_icon = ":DayZ/gui/status/hunger/0.png"
+			food_icon = "gui/status/hunger/0.png"
 		end
 		if food < 15 then
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.925, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/misc/background.png",0,0,0)
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.925, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/hunger/food_border.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.925, screenHeight*0.065, screenHeight*0.065, "gui/status/misc/background.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.925, screenHeight*0.065, screenHeight*0.065, "gui/status/hunger/food_border.png",0,0,0)
 			dxDrawImage ( screenWidth*0.94 , screenHeight*0.925, screenHeight*0.065, screenHeight*0.065, food_icon,0,0,0,tocolor(r,g,b,fading))
 		else
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.925, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/misc/background.png",0,0,0)
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.925, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/hunger/food_border.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.925, screenHeight*0.065, screenHeight*0.065, "gui/status/misc/background.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.925, screenHeight*0.065, screenHeight*0.065, "gui/status/hunger/food_border.png",0,0,0)
 			dxDrawImage ( screenWidth*0.94 , screenHeight*0.925, screenHeight*0.065, screenHeight*0.065, food_icon,0,0,0,tocolor(r,g,b))
 		end
 		-- // Status Symbols (Broken bone, pain, bleeding, ...)
 		-- Broken bone
 		if getElementData(localPlayer,"brokenbone") then
-			dxDrawImage ( screenWidth*0.9375 , screenHeight*0.55, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/misc/brokenbone.png",0,0,0)
+			dxDrawImage ( screenWidth*0.9375 , screenHeight*0.55, screenHeight*0.065, screenHeight*0.065, "gui/status/misc/brokenbone.png",0,0,0)
 		end
 		if getElementData(localPlayer,"bleeding") > 0 then
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.85, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/misc/medic.png",0,0,0,tocolor(255,255,255,fading))
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.85, screenHeight*0.065, screenHeight*0.065, "gui/status/misc/medic.png",0,0,0,tocolor(255,255,255,fading))
 		end
 		if getElementData(localPlayer,"infection") or getElementData(localPlayer,"sepsis") and getElementData(localPlayer,"sepsis") > 0 then
-			dxDrawImage ( screenWidth*0.94 , screenHeight*0.85, screenHeight*0.065, screenHeight*0.065, ":DayZ/gui/status/blood/infection.png",0,0,0)
+			dxDrawImage ( screenWidth*0.94 , screenHeight*0.85, screenHeight*0.065, screenHeight*0.065, "gui/status/blood/infection.png",0,0,0)
 		end
 		local x,y,z = getElementPosition(localPlayer)
 		for i,player in ipairs(getElementsByType("player")) do
@@ -260,7 +260,7 @@ function updateStatusIcons()
 				end
 			end
 			--dxDrawText (engine.."/"..needengine.." Engine" ,screenWidth*0.5-w/2 , screenHeight*0,screenWidth*0.5-w/2 , screenHeight*0,tocolor ( r,g,b, 220 ), 1.02, "default-bold" )
-			dxDrawImage(screenW * 0.4562, screenH * 0.0767, screenW * 0.0488, screenH * 0.0317, ":DayZ/gui/status/vehicle/engine/"..enginetype.."_"..e_number..".png", 0, 0, 0, tocolor(255, 255, 255, 255), false)
+			dxDrawImage(screenW * 0.4562, screenH * 0.0767, screenW * 0.0488, screenH * 0.0317, "gui/status/vehicle/engine/"..enginetype.."_"..e_number..".png", 0, 0, 0, tocolor(255, 255, 255, 255), false)
 			--local w = dxGetTextWidth(tires.."/"..needtires.." Tires",1.02,"default-bold")
 			local tire_number = 0
 			if tires == needtires then
@@ -272,7 +272,7 @@ function updateStatusIcons()
 			end
 			--dxDrawText (tires.."/"..needtires.." Tires",screenWidth*0.5-w/2 , screenHeight*0+offset,screenWidth*0.5-w/2 , screenHeight*0+offset,tocolor ( r,g,b, 220 ), 1.02, "default-bold" )
 			dxDrawText(tonumber(tires).."/"..tonumber(needtires), screenW * 0.5162, screenH * 0.1083, screenW * 0.5687, screenH * 0.1333, tocolor(73, 251, 3, 255), 1.00, "default-bold", "center", "top", false, false, false, false, false)
-			dxDrawImage(screenW * 0.5175, screenH * 0.0767, screenW * 0.0488, screenH * 0.0317, ":DayZ/gui/status/vehicle/whl/whl_"..tire_number..".png", 0, 0, 0, tocolor(255, 255, 255, 255), false)
+			dxDrawImage(screenW * 0.5175, screenH * 0.0767, screenW * 0.0488, screenH * 0.0317, "gui/status/vehicle/whl/whl_"..tire_number..".png", 0, 0, 0, tocolor(255, 255, 255, 255), false)
 			--local w = dxGetTextWidth(parts.."/"..needparts.." Tank Parts",1.02,"default-bold")
 			local p_number = 0
 			if parts == needparts then
@@ -283,7 +283,7 @@ function updateStatusIcons()
 				p_number = 0
 			end
 			--dxDrawText (parts.."/"..needparts.." Tank Parts",screenWidth*0.5-w/2 , screenHeight*0+offset*2,screenWidth*0.5-w/2 , screenHeight*0+offset, tocolor (r,g,b, 220 ) , 1.02, "default-bold" )
-			dxDrawImage(screenW * 0.5787, screenH * 0.0767, screenW * 0.0488, screenH * 0.0317, ":DayZ/gui/status/vehicle/tank/tank_"..p_number..".png", 0, 0, 0, tocolor(255, 255, 255, 255), false)
+			dxDrawImage(screenW * 0.5787, screenH * 0.0767, screenW * 0.0488, screenH * 0.0317, "gui/status/vehicle/tank/tank_"..p_number..".png", 0, 0, 0, tocolor(255, 255, 255, 255), false)
 			--local w = dxGetTextWidth("Fuel:"..math.floor(fuel).."/"..maxfuel,1.02,"default-bold")
 			--[[if fuel == maxfuel then
 				r,g,b = 0,255,0
@@ -329,7 +329,7 @@ function updateStatusIcons()
 				end
 			
 			--dxDrawText ("Fuel:"..math.floor(fuel).."/"..maxfuel,screenWidth*0.5-w/2 , screenHeight*0+offset*3,screenWidth*0.5-w/2 , screenHeight*0+offset*2,tocolor ( r,g,b, 220 ), 1.02, "default-bold" )
-			dxDrawImage(screenW * 0.4975, screenH * -0.0983, screenW * 0.0200, screenH * 0.2750, ":DayZ/gui/status/vehicle/fuel/"..fuel_number..".png", 270, 0, 0, tocolor(255, 255, 255, 255), false)
+			dxDrawImage(screenW * 0.4975, screenH * -0.0983, screenW * 0.0200, screenH * 0.2750, "gui/status/vehicle/fuel/"..fuel_number..".png", 270, 0, 0, tocolor(255, 255, 255, 255), false)
 			end
 			local veh_health = getElementHealth(veh)
 			local health_number = 0
@@ -340,7 +340,7 @@ function updateStatusIcons()
 			elseif veh_health <= 300 and veh_health >= 0 then
 				health_number = 2
 			end
-			dxDrawImage(screenW * 0.3950, screenH * 0.0767, screenW * 0.0488, screenH * 0.0317, ":DayZ/gui/status/vehicle/hull/hull_"..health_number..".png", 0, 0, 0, tocolor(255,255,255,255), false)
+			dxDrawImage(screenW * 0.3950, screenH * 0.0767, screenW * 0.0488, screenH * 0.0317, "gui/status/vehicle/hull/hull_"..health_number..".png", 0, 0, 0, tocolor(255,255,255,255), false)
 		end
 		if not playerTarget then return end
 		local x,y,z = getElementPosition(playerTarget)
@@ -377,7 +377,7 @@ addEventHandler("onClientPlayerDeathInfo",getRootElement(),dayZDeathInfo)
 
 function showDayZDeathScreen()
 	setTimer ( fadeCamera, 1000, 1, true, 1.5 )
-	deadBackground = guiCreateStaticImage(0,0,1,1,":DayZ/gui/status/misc/dead.jpg",true)
+	deadBackground = guiCreateStaticImage(0,0,1,1,"gui/status/misc/dead.jpg",true)
 	deathText = guiCreateLabel(0,0.8,1,0.2,"You died! \nYou will respawn in 30 seconds.",true)
 	guiLabelSetHorizontalAlign (deathText,"center")
 	setTimer(function() guiSetVisible(deathText,false) end,30000,1)
