@@ -62,11 +62,11 @@ function drawCrosshair()
 		if getPedWeapon(localPlayer) == 22 and getElementData(localPlayer,"currentweapon_2") == "Flashlight" then
 			crosshair = "none"
 		end
-		dxDrawImage(screenX1-((size+isFiring)/2)+1, screenY1-((size+isFiring)/2)-1, size+isFiring, size+isFiring, ":DayZ/gui/crosshair/"..crosshair..".png", 0,0,0, tocolor(0,0,0,255))
-		dxDrawImage(screenX1-((size+isFiring)/2)-1, screenY1-((size+isFiring)/2)+1, size+isFiring, size+isFiring, ":DayZ/gui/crosshair/"..crosshair..".png", 0,0,0, tocolor(0,0,0,255))
-		dxDrawImage(screenX1-((size+isFiring)/2)-1, screenY1-((size+isFiring)/2)-1, size+isFiring, size+isFiring, ":DayZ/gui/crosshair/"..crosshair..".png", 0,0,0, tocolor(0,0,0,255))
-		dxDrawImage(screenX1-((size+isFiring)/2)+1, screenY1-((size+isFiring)/2)+1, size+isFiring, size+isFiring, ":DayZ/gui/crosshair/"..crosshair..".png", 0,0,0, tocolor(0,0,0,255))
-		dxDrawImage(screenX1-((size+isFiring)/2), screenY1-((size+isFiring)/2), size+isFiring, size+isFiring, ":DayZ/gui/crosshair/"..crosshair..".png", 0,0,0, tocolor(123,247,96,255))
+		dxDrawImage(screenX1-((size+isFiring)/2)+1, screenY1-((size+isFiring)/2)-1, size+isFiring, size+isFiring, "gui/crosshair/"..crosshair..".png", 0,0,0, tocolor(0,0,0,255))
+		dxDrawImage(screenX1-((size+isFiring)/2)-1, screenY1-((size+isFiring)/2)+1, size+isFiring, size+isFiring, "gui/crosshair/"..crosshair..".png", 0,0,0, tocolor(0,0,0,255))
+		dxDrawImage(screenX1-((size+isFiring)/2)-1, screenY1-((size+isFiring)/2)-1, size+isFiring, size+isFiring, "gui/crosshair/"..crosshair..".png", 0,0,0, tocolor(0,0,0,255))
+		dxDrawImage(screenX1-((size+isFiring)/2)+1, screenY1-((size+isFiring)/2)+1, size+isFiring, size+isFiring, "gui/crosshair/"..crosshair..".png", 0,0,0, tocolor(0,0,0,255))
+		dxDrawImage(screenX1-((size+isFiring)/2), screenY1-((size+isFiring)/2), size+isFiring, size+isFiring, "gui/crosshair/"..crosshair..".png", 0,0,0, tocolor(123,247,96,255))
 	end
 end 
 
