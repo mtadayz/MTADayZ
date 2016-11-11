@@ -8,7 +8,7 @@
 	
 ]]--
 
-local logTypes = { "admin", "debug", "updates", "accounts", "chat" }
+local logTypes = { "admin", "debug", "updates", "accounts", "game", "chat" }
 
 
 function saveLog( tstring, logtype )
