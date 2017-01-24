@@ -38,8 +38,12 @@ function fileLog(logtype,tstring)
 end
 
 
-function returnLog( logtype )
-	return saveLog( tstring, nil )
+function saveLog( tstring, logtype )	
+	if isCorrectLogType(funcname,logtype) ~= false then
+		return fileLog(logtype,tstring)
+	else
+		return false
+	end
 end
 
 
