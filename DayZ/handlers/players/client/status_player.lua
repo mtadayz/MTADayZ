@@ -10,7 +10,7 @@
 
 addEventHandler("onClientResourceStart", getResourceRootElement(),
 	function()
-		dayzVersion = "MTA:DayZ 0.9.6a"
+		dayzVersion = "MTA:DayZ 0.9.8a"
 		versionLabel  = guiCreateLabel(1,1,0.3,0.3,dayzVersion,true)
 		guiSetSize ( versionLabel, guiLabelGetTextExtent ( versionLabel ), guiLabelGetFontHeight ( versionLabel ), false )
 		x,y = guiGetSize(versionLabel,true)
@@ -256,7 +256,7 @@ function debugJump2()
 	setElementData(localPlayer,"jumping",false)
 end
 
-local SneakEabled = false
+local SneakEnabled = false
 function setPlayerSneakOnWalk()
 	if getControlState("walk") then
 		if not SneakEnabled then
@@ -283,10 +283,32 @@ setTimer(updateDaysAliveTime,2880000,0)
 function updatePlayTime()
 	if getElementData(localPlayer,"logedin") then
 		local playtime = getElementData(localPlayer,"alivetime")
-		setElementData(localPlayer,"alivetime",playtime+1)	
+		setElementData(localPlayer,"alivetime",playtime+1)
 	end	
 end
 setTimer(updatePlayTime,60000,0)
+
+function updateHoursAliveTime()
+	if getElementData(localPlayer,"logedin") then
+		local hourstime = getElementData(localPlayer,"hoursalive")
+		setElementData(localPlayer,"hoursalive",hourstime+1)
+	end	
+end
+setTimer(updateHoursAliveTime,3600000,0)
+
+function playerBloodInWater()
+	if getElementData(localPlayer, "logedin") then
+		local posX, posY, posZ = getElementPosition(localPlayer)
+		if posZ <= -4 then
+			if isElementInWater(localPlayer) then
+				local pBlood = getElementData(localPlayer,"blood")
+				setElementData(localPlayer,"blood", pBlood - gameplayVariables["waterdamage"])
+				setElementData(localPlayer,"pain",true)
+			end
+		end
+	end
+end
+setTimer(playerBloodInWater,4000,0)
 
 function onPlayerActionPlaySound(item)
 	if item == "meat" then

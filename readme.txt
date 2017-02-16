@@ -8,6 +8,9 @@ Once you have moved the contents of mtadayz.zip to the resources folder, open ac
     <object name="resource.DayZ"></object>
     <object name="resource.login"></object>
     <object name="resource.slothbot"></object>
+    <object name="user.[YOUR_NAME]"></object>
+    
+    You need edit "[YOUR_NAME]" per your nickname in game for playing with your admin rights.
     
 Now open mtaserver.conf, scroll down and add these lines:
 
@@ -72,10 +75,11 @@ A: This error appears when items are respawning. We are trying to reduce lag as 
 Usually, it should dissipate after a few minutes, but if the error persists, try restarting the server. In general, it is advised to restart the server
 every 24-48 hours to prevent possible, yet undetected memory leaks.
 
+Q: How to change backpack slots in this gamemode ?
+A: You can do this by modifying the configuration file "cfgServer.lua" (DayZ/configs/cfgServer.lua). Take care to change the "maxslots" variable in the file "cfgSecurity.lua" (DayZ/configs/cfgSecurity.lua) for the anti-cheat.
+
 Q: I want to help developing! How and where can I apply?
 A: Send a private message to Lawliet on the MTA forum. Read this topic before you apply: https://forum.multitheftauto.com/viewtopic.php?f=108&t=88188
 
 Q: There is a question I have that does not appear in the FAQ!
 A: Go to the forum http://mta-dayz.org/forum, and ask there. We'll answer. Eventually.
-
-

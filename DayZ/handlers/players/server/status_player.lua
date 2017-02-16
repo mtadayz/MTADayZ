@@ -1,7 +1,8 @@
 --[[
 #-----------------------------------------------------------------------------#
 ----*					MTA DayZ: status_player.lua						*----
-----* Original Author: Marwin W., Germany, Lower Saxony, Otterndorf		*----
+----* Original Author: Marwin W., Germany, Lower Saxony, Otterndorf and	*----
+----* 							PicardRemi                              *----
 
 ----* This gamemode is being developed by L, CiBeR96, 1B0Y				*----
 ----* Type: SERVER														*----
@@ -155,3 +156,75 @@ function onPlayerTransmitSepsis()
 end
 addEvent("onPlayerTransmitSepsis",true)
 addEventHandler("onPlayerTransmitSepsis",root,onPlayerTransmitSepsis)
+
+function onPlayerHideBody()
+    local col = getElementData(source,"currentCol")
+    if getElementData(source, "Shovel") > 0 then
+        if isElement (col) then
+          setPedAnimation(source,"BOMBER","BOM_Plant",-1,false,false,nil,false)
+            if getElementData(col,"deadman") or getElementData(col,"deadzombie") then
+                setElementData(source,"loot",false)
+                setElementData(source,"currentCol",false)
+                triggerClientEvent(source, "displayClientInfo", source, "Info","You hide the body", 22, 255, 0)
+                setTimer(function(colision)
+                    if isElement (getElementData(colision,"parent")) then
+                        destroyElement(getElementData(colision,"parent"))
+                    end
+                    destroyElement(colision)
+                end,2000,1,col)
+            end 
+        end
+    else
+      triggerClientEvent(source, "displayClientInfo", source, "Info", "You must have a shovel !", 255, 51, 51)
+    end
+end
+addEvent("onPlayerHideBody",true)
+addEventHandler("onPlayerHideBody",getRootElement(),onPlayerHideBody)
+
+function changePlayerBeardAndHair()
+	for k, player in ipairs(getElementsByType("player")) do
+	  if getElementModel(player) == 0 then
+		 editPlayerBeardAndHair(player)
+	  end
+    end
+end
+setTimer(changePlayerBeardAndHair, 120000, 0)
+
+function editPlayerBeardAndHair(thePlayer)
+	local pAliveTime = getElementData(thePlayer, "hoursalive")
+	if getElementData(thePlayer, "logedin") then
+		if not pAliveTime then return end
+		if pAliveTime == 0 or pAliveTime == 1 then
+			addPedClothes(thePlayer, "player_face", "head", 1)
+		elseif pAliveTime == 2 or pAliveTime == 3 then
+			addPedClothes(thePlayer, "tash", "head", 1)
+		elseif pAliveTime == 4 or pAliveTime == 5 or pAliveTime == 6 then
+			addPedClothes(thePlayer, "goatee", "head", 1)
+		elseif pAliveTime == 7 or pAliveTime == 8 or pAliveTime == 9 then
+			addPedClothes(thePlayer, "afrogoatee", "afro", 1)
+		elseif pAliveTime >= 10 then
+			addPedClothes(thePlayer, "afrobeard", "afro", 1)
+		end
+	end
+end
+
+function resetPlayerBeard(source) -- Not working for the moment
+	addPedClothes(source, "afrobeard", "afro", 1)
+end
+addEvent("onPlayerUsingHaircut", true)
+addEventHandler("onPlayerUsingHaircut", getRootElement(), resetPlayerBeard)
+
+setTimer(function()
+    for k, player in ipairs(getElementsByType("player")) do
+        changeWeight(player)
+    end
+end, gameplayVariables["weight_loosetimer"], 0)
+
+function changeWeight(thePlayer)
+  local weight = getPedStat(thePlayer, 21) or 0  
+    if getElementData(thePlayer, "logedin") then
+      if getControlState(thePlayer, "sprint") then
+        setPedStat(thePlayer, 21, weight - gameplayVariables["weight_loose"])
+      end
+  end
+end

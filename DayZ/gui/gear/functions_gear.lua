@@ -111,7 +111,7 @@ if playerMovedInInventory then startRollMessage2("Inventory", "Abusing exploits 
 end
 
 function onPlayerMoveItemOutOFInventory (itemName,loot)
-local itemPlus = 1
+	local itemPlus = 1
 	if itemName == "11.43x23mm Cartridge" then
 		itemPlus = 7
 	elseif itemName == "9x18mm Cartridge" then
@@ -141,6 +141,11 @@ local itemPlus = 1
 	elseif itemName == "Lee Enfield" or itemName == "AK-74" or itemName == "AKS-74U" or itemName == "RPK" or itemName == "AKM" or itemName == "Sa58V CCO" or itemName == "Sa58V RCO" or itemName == "FN FAL" or itemName == "M24" or itemName == "DMR" or itemName == "M40A3" or itemName == "G36A CAMO" or itemName == "G36C" or itemName == "G36C CAMO" or itemName == "G36K CAMO" or itemName == "L85A2 RIS Holo" or itemName == "M16A2" or itemName == "M16A2 M203" or itemName == "M16A2" or itemName == "M16A4" or itemName == "CZ 550" or itemName == "SVD Dragunov" or itemName == "Mosin-Nagant" or itemName == "Winchester 1866" or itemName == "Double-barreled Shotgun" or itemName == "M1014" or itemName == "Remington 870" or itemName == "Compound Crossbow" or itemName == "Hatchet" or itemName == "Bizon PP-19 SD" or itemName == "MP5A5" then
 		triggerServerEvent("removeBackWeaponOnDrop",localPlayer)
 	end
+
+	if itemName == "Military collar" or itemName == "Africa collar" or itemName == "LS collar" or itemName == "Gold collar" or itemName == "Silver collar" or itemName == "Black Bandana (M)" or itemName == "Blue Bandana (M)" or itemName == "Green Bandana (M)" or itemName == "Red Bandana (M)" or itemName == "Dark Glasses" or itemName == "Red Glasses" or itemName == "Square Glasses" or itemName == "Black Bandana (H)" or itemName == "Blue Bandana (H)" or itemName == "Green Bandana (H)" or itemName == "Red Bandana (H)" or itemName == "Black Beret" or itemName == "Red Beret" or itemName == "Old Hat" or itemName == "Black Hat" or itemName == "Yellow Hat" or itemName == "Black Trucker" or itemName == "Blue Trucker" or itemName == "Green Trucker" or itemName == "Red Trucker" or itemName == "Yellow Trucker" or itemName == "Cow-Boy Hat" or itemName == "White Hat" or itemName == "Hockey Mask" or itemName == "Black Shoe" or itemName == "Sport Shoe" or itemName == "Brown Shoe" or itemName == "Biker Shoe" or itemName == "Blue Shoe" or itemName == "Red Shoe" or itemName == "Beach Shoe" or itemName == "Black Pants" or itemName == "Beige Pants" or itemName == "Gray Shorts" or itemName == "Blue Shorts" or itemName == "Blue Jeans" or itemName == "Green Jeans" or itemName == "Gray Pants" or itemName == "Yellow Pants" or itemName == "Blue Jogging" or itemName == "Gray Jogging" or itemName == "Military Pants" or itemName == "Beige Vest" or itemName == "Baseball Shirt" or itemName == "Baseball 2 Shirt" or itemName == "Red Vest" or itemName == "Grey Shirt" or itemName == "Green Vest" or itemName == "Hawai Shirt" or itemName == "Black Vest" or itemName == "Brown Vest" or itemName == "Biker Vest" or itemName == "Blue Shirt" or itemName == "Green 2 Vest" or itemName == "Number 5 Shirt" or itemName == "Monk Shirt" then
+		triggerServerEvent("checkPlayerClothes",localPlayer,itemName)
+	end
+
 	if loot then
 		if not getElementData(loot,"itemloot") and getElementType(getElementData(loot,"parent")) == "vehicle" then
 			if itemName == "Full Gas Canister" then
@@ -161,6 +166,7 @@ local itemPlus = 1
 			end
 		end
 	end
+
 	itemName2 = itemName
 	if itemName == "Tire_inVehicle" then itemName2 = "Tire" end
 	if itemName == "Engine_inVehicle" then itemName2 = "Engine" end
@@ -345,7 +351,7 @@ function playerUseItem(itemName,itemInfo)
 			triggerServerEvent("onPlayerRequestChangingStats",localPlayer,itemName,itemInfo,"food")
 		end
 	elseif itemInfo == "Put clothes on" then
-		triggerServerEvent("onPlayerChangeSkin",localPlayer,itemName)
+		triggerServerEvent("onPlayerChangeClothes",localPlayer)
 	elseif itemName == "Empty Water Bottle" then
 		triggerServerEvent("onPlayerRefillWaterBottle",localPlayer,itemName)		
 	elseif itemName == "Tent" then

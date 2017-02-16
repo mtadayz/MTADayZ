@@ -9,6 +9,11 @@
 ]]
 
 function addPlayerStats (player,data,value)
+	-- Fix for nil values on value,data,player variables
+	if not value or not player or not data then 
+		outputDebugString("[DayZ] ERROR: Nil values in addPlayerStats@consume_player.lua [SERVER]")
+	return end
+	--
 	if data == "food" then
 		local current = getElementData(player,data)
 		if current + value > 100 then
@@ -76,10 +81,13 @@ function onPlayerRequestChangingStats(itemName,itemInfo,data)
 			temperatureGain = value[6]
 		end
 	end
+	local weight = getPedStat(source, 21) or 0
 	if data == "food" then
 		setPedAnimation (source,"FOOD","EAT_Burger",6000,false,false,nil,false)
+		setPedStat(source, 21, weight + gameplayVariables["weight_food"])
 	elseif data == "thirst" then
-		setPedAnimation (source,"VENDING","VEND_Drink2_P",6000,false,false,nil,false) 
+		setPedAnimation (source,"VENDING","VEND_Drink2_P",6000,false,false,nil,false)
+		setPedStat(source, 21, weight + gameplayVariables["weight_thirst"])
 		if itemName == "Water Bottle" then
 			setElementData(source,"Empty Water Bottle",(getElementData(source,"Empty Water Bottle") or 0)+1)
 		end

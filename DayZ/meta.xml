@@ -8,8 +8,9 @@
 #-----------------------------------------------------------------------------#
 -->
 <meta>
-    <info author="L, CiBeR, JBoy (Original: Marwin)" description="MTA:DayZ - DayZ for MTA" version="0.9.5a" type="gamemode" />
+    <info author="L, CiBeR, JBoy (Original: Marwin)" description="MTA:DayZ - DayZ for MTA" version="0.9.8a" type="gamemode" />
 	<min_mta_version server="1.4.1" client="1.4.1" />
+
 	<script src="version.lua" type="server" />
 	<script src="logsystem.lua" type="server" />
 	<script src="utilities.lua" type="shared" />
@@ -26,6 +27,9 @@
     <script src="tools/bone_attach/attach_func.lua" type="server" />
     <script src="tools/bone_attach/attach_func.lua" type="client" />
     <script src="tools/bone_attach/bone_pos_rot.lua" type="client" />
+	
+	<!-- Mapping -->
+	<map src="mapping.map" dimension="0"></map>
 	
 	<!-- tables folder -->
 	<script src="tables/table_animals.lua" type="shared" />
@@ -78,7 +82,15 @@
 	<script src="handlers/players/client/reload_player.lua" type="client" cache="false" />
 	<script src="handlers/world/client/lights.lua" type="client" cache="false" />
 	<script src="handlers/world/client/chat.lua" type="client" cache="false" />
-	
+
+	<script src="handlers/houses/teleporteditor/tele_cl.lua" type="client"/>
+	<script src="handlers/houses/teleporteditor/tele_sr.lua" type="server"/>
+	<file src="handlers/houses/teleporteditor/tele.png" />
+	<file src="handlers/houses/teleporteditor/tar.png" />
+
+	<map src="handlers/houses/mapping/mapping.map" dimension="0"></map>
+    <script src="handlers/houses/mapping/mapEditorScriptingExtension_s.lua" type="server"></script>
+    <script src="handlers/houses/mapping/mapEditorScriptingExtension_c.lua" type="client" validate="false"></script>
 	
 	<!-- Flashlight -->
 	<script src="handlers/players/client/flashlight/c_shader_light.lua" type="client" cache="false" />
@@ -398,8 +410,8 @@
 	<config src="help.xml" type="client" />
 	
 	<!-- Exports -->
+	<export function="addAddonInfo" type="server" /> 
 	<export function="saveLog" type="server" />
-	<export function="returnLog" type="server" />
 	<export function="setPlayerBlood" type="server" />
 	<export function="setPlayerMurders" type="server" />
 	<export function="setPlayerZombiesKilled" type="server" />
@@ -415,34 +427,9 @@
 	<export function="isPlayerInLoot" type="client" />
 	<export function="getLootMaxAviableSlots" type="client" />
 	<export function="getLootCurrentSlots" type="client" />
-	<export function="isToolbeltItem" type="client" />
-    <export function="addAddonInfo" type="server" />    
+	<export function="isToolbeltItem" type="client" />   
    	
 	<!-- models folder -->
-    <file src="models/players/txd/ghilliesuit.txd" />
-    <file src="models/players/dff/ghilliesuit.dff" />
-    <file src="models/players/txd/civilian_male.txd" />
-    <file src="models/players/dff/civilian_male.dff" />
-	<file src="models/players/txd/bandit1_male.txd" />
-	<file src="models/players/dff/bandit1_male.dff" />
-	<file src="models/players/txd/bandit2_male.txd" />
-	<file src="models/players/dff/bandit2_male.dff" />
-	<file src="models/players/txd/bandit3_male.txd" />
-    <file src="models/players/dff/bandit3_male.dff" />
-    <file src="models/players/txd/standard_male.txd" />
-    <file src="models/players/dff/standard_male.dff" />
-	<file src="models/players/txd/civilian_female.txd" />
-    <file src="models/players/dff/civilian_female.dff" />
-	<file src="models/players/txd/bandit1_female.txd" />
-	<file src="models/players/dff/bandit1_female.dff" />
-	<file src="models/players/txd/bandit2_female.txd" />
-    <file src="models/players/dff/bandit2_female.dff" />
-    <file src="models/players/txd/standard_female.txd" />
-    <file src="models/players/dff/standard_female.dff" />
-    <file src="models/players/txd/hero_male.txd" />
-    <file src="models/players/dff/hero_male.dff" />
-	<file src="models/players/txd/army_male.txd" />
-	<file src="models/players/dff/army_male.dff" />
     <file src="models/animals/txd/bear.txd" />
     <file src="models/animals/dff/bear.dff" />
     <file src="models/animals/txd/fox.txd" />
@@ -737,6 +724,42 @@
     <file src="models/items/dff/jerrycan.dff" />
 	<file src="models/items/txd/windscreenglass.txd" />
 	<file src="models/items/dff/windscreenglass.dff" />
+
+	<file src="models/buildings/col/baguilok.col" />
+	<file src="models/buildings/col/baraquement.col" />
+	<file src="models/buildings/col/controltower.col" />
+	<file src="models/buildings/col/fire.col" />
+	<file src="models/buildings/col/fires.col" />
+	<file src="models/buildings/col/hangar.col" />
+	<file src="models/buildings/col/medictent.col" />
+	<file src="models/buildings/col/tents.col" />
+	<file src="models/buildings/col/tents2.col" />
+	<file src="models/buildings/col/teste.col" />
+	<file src="models/buildings/col/torre.col" />
+
+	<file src="models/buildings/dff/baguilok.dff" />
+	<file src="models/buildings/dff/baraquement.dff" />
+	<file src="models/buildings/dff/controltower.dff" />
+	<file src="models/buildings/dff/fire.dff" />
+	<file src="models/buildings/dff/fires.dff" />
+	<file src="models/buildings/dff/hangar.dff" />
+	<file src="models/buildings/dff/medictent.dff" />
+	<file src="models/buildings/dff/tents.dff" />
+	<file src="models/buildings/dff/tents2.dff" />
+	<file src="models/buildings/dff/teste.dff" />
+	<file src="models/buildings/dff/torre.dff" />
+
+	<file src="models/buildings/txd/baguilok.txd" />
+	<file src="models/buildings/txd/baraquement.txd" />
+	<file src="models/buildings/txd/controltower.txd" />
+	<file src="models/buildings/txd/fire.txd" />
+	<file src="models/buildings/txd/fires.txd" />
+	<file src="models/buildings/txd/hangar.txd" />
+	<file src="models/buildings/txd/medictent.txd" />
+	<file src="models/buildings/txd/tents.txd" />
+	<file src="models/buildings/txd/tents2.txd" />
+	<file src="models/buildings/txd/teste.txd" />
+	<file src="models/buildings/txd/torre.txd" />
 	
 	<script src="models/loadskins.lua" type="client" cache="false" />
 	<script src="models/weaponswitch.lua" type="client" cache="false" />

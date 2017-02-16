@@ -9,7 +9,7 @@
 * @version		1.0
 ]]--
 
-local maxDarkness = 0.05 -- [1] = lightest || [0] = darkest
+local maxDarkness = 0.11 -- [1] = lightest || [0] = darkest
 local speed = 0.003 -- 0.001
 
 -- Default variables you shouldn't alter.
@@ -17,6 +17,21 @@ local b = 1
 local shaderList = {}
 local fading = false
 local clone
+
+nightStatus = true
+
+function onPlayerEnabledGoggles()
+	nightStatus = false
+end
+addEvent("onPlayerEnabledGoggles",true)
+addEventHandler("onPlayerEnabledGoggles",root,onPlayerEnabledGoggles)
+
+
+function onPlayerDisabledGoggles()
+	nightStatus = true
+end
+addEvent("onPlayerDisabledGoggles",true)
+addEventHandler("onPlayerDisabledGoggles",root,onPlayerDisabledGoggles)
 
 -- Feel free to add more removables.
 local removables = {
@@ -60,22 +75,27 @@ function night_init()
 		end
 	end
 
+	if gameplayVariables["enablenight"] == true then
+		nightTimer = setTimer(night_check, 1000, 0)
+	end
+
 	addEventHandler('onClientHUDRender', root, night_render)
-	nightTimer = setTimer(night_check, 60000, 0)
 end
 
 function night_check()
-	local hours, minutes = getTime()
-	if hours >= 5 and hours < 12 then
-		fading = false
-	elseif hours >= 12 and hours < 15 then
-		fading = false
-	elseif hours >= 15 and hours < 21 then
-		fading = false
-	elseif hours >= 21 and hours < 5 then
-		fading = false
-	else
-		fading = true
+	if nightStatus == true then
+		local hours, minutes = getTime()
+		if hours >= 5 and hours < 12 then
+			fading = false
+		elseif hours >= 12 and hours < 15 then
+			fading = false
+		elseif hours >= 15 and hours < 21 then
+			fading = false
+		elseif hours >= 21 and hours < 5 then
+			fading = false
+		else
+			fading = true
+		end
 	end
 end
 

@@ -189,6 +189,10 @@ local number = 0
 		setElementData(rowText[number],"usedItem","deadreason")
 		guiSetVisible(rowImage[number],true)
 		guiSetText(rowText[number],"Check Body")
+
+		setElementData(rowText[3],"usedItem","hidebody")
+  		guiSetVisible(rowImage[3],true)
+  		guiSetText(rowText[3],"Hide Body")
 	end
 	if arg1 == "Fireplace" then
 		if getElementData(getLocalPlayer(),"Raw Meat") >= 1 then
@@ -607,7 +611,7 @@ function()
 	--dxDrawingColorText(newbieHead,x-length/2-screenWidth*0.01,y, x+length/2+screenWidth*0.01, y+screenHeight*0.03, tocolor(22,255,22,120),0.5, 1.1, "default-bold", "center", "center")
 	if objects then
 		if x and y then
-			dxDrawImage(x-length/2-screenWidth*0.01,y, screenWidth*0.1, screenHeight*0.08,"images/dayzicons/loot.png",0,0,0)
+			dxDrawImage(x-length/2-screenWidth*0.01,y, screenWidth*0.1, screenHeight*0.08,":DayZ/gui/gear/items/loot.png",0,0,0)
 		--dxDrawingColorText(newbieText,x-length/2-screenWidth*0.01,y+screenHeight*0.03, x+length/2+screenWidth*0.01, y+screenHeight*0.07, tocolor(255,255,255,120),0.5, 1, "default-bold", "center", "center")
 		end
 	end
@@ -680,6 +684,11 @@ if ( keyState == "down" ) then
 			disableMenu()
 			return
 		end
+		if itemName == "hidebody" then
+	        triggerServerEvent("onPlayerHideBody",getLocalPlayer())
+	        disableMenu()
+	        return
+	    end
 		if itemName == "takewheel" then
 			if getPlayerCurrentSlots() + getItemSlots("Tire") <= getPlayerMaxAviableSlots() then
 				local col = getElementData(getLocalPlayer(),"currentCol")

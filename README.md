@@ -13,10 +13,13 @@ bug reports and suggestions. Note that you have to fork the repository first. Ed
 changes appropriate, the pull request will be accepted, and you will be marked as a collaborator.
 Remeber to keep your fork in sync, more info: http://www.youtube.com/watch?v=-zvHQXnBO6c
 
+### MTA:DayZ Server List ###
+- MTA:DayZ Official Server #1 | **IP :**
+
+### Links ###
+
 ### Contact ###
-If you wish to contact us, you can do so at our HipChat room: https://mtadayz.hipchat.com/chat/room/1819442
-It's public and accessible for everyone - you don't need an account (although creating one is beneficial in case we wish to contact you).
-Furthermore, you can try our forum: https://mta-dayz.org/forum/
+At the moment you can only contact us via the issues page.
 
 ### License ###
 We do not claim ownership for any of the models, textures, images or sounds provided, nor do we claim ownership for the idea or concept. However, we hereby
