@@ -16,6 +16,7 @@ This changelog lists all changes made to MTA DayZ. It adheres to the following f
 ### FIXED: body temperature keeps rising when unconscious bug
 ### DEPRECATED: Upgraded showPlayerHudComponent [deprecated] to setPlayerHudComponentVisible
 
+
 # CLOTHES #
 
 ### ADDED: Military collar
