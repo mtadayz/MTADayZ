@@ -10,7 +10,7 @@
 
 
 local timer
-local checkType = "stable" -- stable = Only check for stable versions; beta[SOON] = check for most recent version (including unstables)
+local checkType = "stable" -- stable = Only check for stable versions; beta = check for most recent version (including unstables)
 version = "0.9.8a"
 
 addEventHandler("onResourceStart",resourceRoot,
