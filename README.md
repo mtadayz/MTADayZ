@@ -1,2 +1,2 @@
 # MTADayZ
-# Repository moved to https://github.com/ciber96/mtadayz
+# Repository moved to https://github.com/NullSystemWorks/mtadayz
